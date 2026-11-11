@@ -35,8 +35,8 @@
           <thead><tr>
             <th>Empresa, sector i seu</th>
             <th class="num">Benefici net 2025 (M€)</th>
-            <th class="num">Impost sobre beneficis (M€)</th>
-            <th class="num">Tipus efectiu</th>
+            <th class="num">Impost anotat als comptes, món (M€)</th>
+            <th class="num">Tipus efectiu comptable (món)</th>
             <th class="num">Impost de societats pagat a Espanya (M€)</th>
             <th>Pes d'Espanya i notes</th>
           </tr></thead>
@@ -44,7 +44,13 @@
         </table>
       </div>
       <p class="empty" id="empEmpty"></p>
-      <p class="caption"><strong>Com llegir-ho.</strong> El benefici i l'impost són del grup a tot el món (compte de resultats consolidat). El tipus efectiu és l'impost dividit pel benefici abans d'impostos. L'impost de societats pagat a Espanya és el que l'empresa ha ingressat realment a Hisenda aquell any, i només hi surt si l'empresa el publica. Un guió vol dir que no hem trobat la dada amb font. No hi sumem l'IVA, l'IRPF dels treballadors ni les cotitzacions que les empreses recapten, perquè no els paguen elles. Cada nom enllaça a la font. Dades recollides dels comptes i informes fiscals del 2025; si veus un error, <a href="https://github.com/oriollacave/deflactam/issues" target="_blank" rel="noopener">avisa'ns</a>.</p>
+      <div class="note" style="margin-top:14px"><strong>Per què aquí la banca surt al 25-30% i més avall al 4%?</strong> Perquè són dues mesures diferents.
+        <ul style="margin:8px 0 0;padding-left:18px">
+          <li><strong>Tipus efectiu comptable (aquesta taula):</strong> l'impost que l'empresa <em>anota</em> als seus comptes del 2025, a tots els països on opera, dividit pel benefici de tot el món. Inclou impostos pagats a Mèxic, el Brasil o el Regne Unit, l'impost especial a la banca i impostos que es pagaran o es compensaran en anys futurs.</li>
+          <li><strong>El 4,26% d'Hisenda (gràfic de més avall):</strong> només l'impost de societats <em>espanyol</em> del 2023, dividit per tot el benefici comptable dels grups bancaris, que inclou el que guanyen a l'estranger i ja tributa allà.</li>
+          <li><strong>La xifra que les acosta és l'última columna:</strong> l'impost de societats ingressat de veritat a Hisenda, comparat amb el benefici fet a Espanya. CaixaBank, que fa el 86% del benefici a Espanya, va anotar 2.775 M€ d'impost però en va ingressar 620 M€ a Espanya: un 8% del benefici espanyol. La diferència ve sobretot de crèdits fiscals per pèrdues d'anys anteriors.</li>
+        </ul></div>
+      <p class="caption"><strong>Com llegir-ho.</strong> Benefici i impost són del grup a tot el món. L'impost de societats pagat a Espanya només hi surt si l'empresa el publica; el percentatge sobre el benefici fet a Espanya, només si també publica aquest benefici. Un guió vol dir que no hem trobat la dada amb font. No hi sumem l'IVA, l'IRPF dels treballadors ni les cotitzacions que les empreses recapten, perquè no els paguen elles. Cada nom enllaça a la font. Si veus un error, <a href="https://github.com/oriollacave/deflactam/issues" target="_blank" rel="noopener">avisa'ns</a>.</p>
     </div>
   </section>
 
@@ -63,7 +69,7 @@
 
       <h3>En euros: quant guanyen i quant paguen (2023)</h3>
       <div class="vs" id="absolutes"></div>
-      <div class="note" style="margin-top:18px">Per què aquestes xifres d'Hisenda són més baixes que les del cercador? Perquè aquí es mira només l'impost espanyol sobre tot el benefici del grup, i al cercador, l'impost pagat a tots els països. Part de la diferència ve de beneficis fets a l'estranger que ja hi han tributat i de pèrdues d'anys anteriors, que són mecanismes legals. Des del 2024 hi ha un tipus mínim global del 15% per a grups de més de 750 M€ de facturació.</div>
+      <div class="note" style="margin-top:18px">Aquestes xifres d'Hisenda comparen només l'impost de societats espanyol amb tot el benefici del grup, també el fet a l'estranger. Per això surten molt més baixes que el tipus comptable del cercador. Part de la diferència és legítima: beneficis de fora que ja han tributat allà i pèrdues d'anys anteriors. Des del 2024 hi ha un tipus mínim global del 15% per a grups de més de 750 M€ de facturació.</div>
 
       <h3 id="cami">El camí d'un euro fins a la butxaca</h3>
       <p class="sub">L'empresa paga sobre el benefici, i quan el reparteix l'accionista torna a pagar. Tria un sou brut: calculem què li costa a l'empresa i seguim aquesta mateixa quantitat pels tres camins (sou, dividend i societat patrimonial).</p>

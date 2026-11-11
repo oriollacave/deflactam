@@ -181,7 +181,12 @@
         tr.appendChild(h("td", { class: "num" }, num(e.imp)));
         var r = rate(e);
         var tdr = h("td", { class: "num" }, r == null ? "—" : pct(r)); if (r != null && r < 15) tdr.className = "num low"; tr.appendChild(tdr);
-        tr.appendChild(h("td", { class: "num" }, e.isEsp == null ? "—" : num(e.isEsp) + (e.isEspAny ? " (" + e.isEspAny + ")" : "")));
+        var tde = h("td", { class: "num" }, e.isEsp == null ? "—" : num(e.isEsp) + (e.isEspAny ? " (" + e.isEspAny + ")" : ""));
+        if (e.isEsp != null && e.baiEsp > 0) {
+          var pe = e.isEsp / e.baiEsp * 100;
+          tde.appendChild(h("div", { class: "small" + (pe < 15 ? " low" : "") }, pct(pe) + " del benefici fet a Espanya"));
+        }
+        tr.appendChild(tde);
         var tdn = h("td", { class: "small" }, e.pes + (e.nota ? ". " + e.nota : "")); tr.appendChild(tdn);
         tb.appendChild(tr);
       });
