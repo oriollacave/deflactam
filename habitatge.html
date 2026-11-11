@@ -30,16 +30,39 @@
           <svg class="chart" id="chartComp" viewBox="0 0 520 260" role="img" aria-label="Composició megatenidors"></svg>
         </div>
       </div>
-      <h3>Quant cobren? Fes l'estimació</h3>
+      <h3 id="mercat">Tot el mercat: de qui són els pisos de lloguer</h3>
+      <p class="sub">Uns 3,1 milions de pisos llogats com a habitatge habitual el 2023. Els de particulars estan repartits segons quants pisos lloga cada llar propietària.</p>
+      <div class="legend">
+        <span><i style="background:var(--accent)"></i>Particulars</span>
+        <span><i style="background:var(--blue)"></i>Empreses i fons</span>
+        <span><i style="background:var(--grey-bar)"></i>Parc públic i social</span>
+      </div>
+      <div class="card"><svg class="chart" id="chartMercat" viewBox="0 0 900 340" role="img" aria-label="Pisos de lloguer segons quants en té cada propietari"></svg></div>
+      <div class="vs">
+        <div class="item"><div class="pct">9,3%</div><div class="nums">de les llars cobren algun lloguer d'habitatge. El 20,2% de les llars viuen de lloguer.</div></div>
+        <div class="item"><div class="pct">53%</div><div class="nums">dels pisos de particulars són de llars que en lloguen dos o més. A Barcelona, el 61%.</div></div>
+        <div class="item"><div class="pct">3,6%</div><div class="nums">dels pisos de particulars són de llars que en lloguen deu o més. Sumant-hi empreses i fons, els grans propietaris tenen prop de l'11% del mercat privat.</div></div>
+        <div class="item"><div class="pct">+35%</div><div class="nums">de pisos llogats per particulars entre 2016 i 2023 (d'1,9 a 2,57 milions). Les llars amb diversos pisos han crescut un 39,9%; les d'un sol pis, un 30,4%.</div></div>
+      </div>
+      <p class="caption">L'eix mostra quants pisos lloga cada propietari i l'alçada, quants pisos sumen. No hi ha dades publicades del nombre exacte de propietaris de cada tram, tret del primer: 1,2 milions de llars lloguen un sol pis. Dades del territori fiscal comú (sense el País Basc ni Navarra).</p>
+
+      <h3>Quant mou el lloguer? Fes l'estimació</h3>
       <div class="card">
-        <label for="rent" style="font-size:14px;color:var(--muted)">Lloguer mitjà mensual dels seus pisos</label>
-        <input type="range" id="rent" min="500" max="1500" step="50" value="900" style="width:100%;accent-color:var(--accent)">
+        <label for="rent" style="font-size:14px;color:var(--muted)">Lloguer d'un pis de 100 m²: <strong id="rentLabel" style="color:var(--ink)"></strong></label>
+        <input type="range" id="rent" min="500" max="2500" step="50" value="1200" style="width:100%;accent-color:var(--accent)">
         <div class="grid2" style="margin-top:12px">
-          <div><div class="slider-out" id="rentOut"></div><div class="caption">l'any, només les empreses i fons privats (178.000 pisos)</div></div>
+          <div><div class="slider-out" id="mercatTotal"></div><div class="caption">l'any, tot el mercat privat de lloguer</div></div>
           <div><div class="slider-out" id="rentCaixa"></div><div class="caption">l'any, CaixaBank i Blackstone junts (41.600 pisos)</div></div>
         </div>
-        <p class="caption">Estimació il·lustrativa: pisos × lloguer × 12. No descompta despeses ni impostos.</p>
+        <div class="tablewrap" style="margin-top:14px">
+          <table class="data" style="min-width:520px">
+            <thead><tr><th>Qui lloga</th><th class="num">Pisos</th><th class="num">Ingressos per lloguer l'any</th></tr></thead>
+            <tbody id="mercatBody"></tbody>
+          </table>
+        </div>
+        <p class="caption">Estimació il·lustrativa: pisos × lloguer × 12, com si tots els pisos fessin 100 m². Els pisos reals són més petits de mitjana, i els contractes antics són més barats que els nous: a Catalunya el lloguer mitjà dels contractes era de 878 € al mes el 2026 i a Barcelona, de 1.141 €. No descompta despeses ni impostos. Les empreses amb 50 pisos o més (els «megatenidors» de Civio) ingressarien <span id="rentOut"></span>.</p>
       </div>
+      <ul class="sources" id="mercatFonts"></ul>
       <h3>Context imprescindible</h3>
       <ul class="facts" id="facts"></ul>
       <p class="caption">Font principal: <a href="https://www.cronista.com/espana/economia-finanzas/alquileres-en-espana-caixabank-y-blackstone-son-los-fondos-de-inversion-con-mas-viviendas-segun-civio/" target="_blank" rel="noopener">Fundació Civio (2024), via El Cronista</a>.</p>

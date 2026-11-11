@@ -190,7 +190,48 @@
     input.addEventListener("input", draw); sel.addEventListener("change", draw); draw();
   }
 
+  // ---------- Mercat del lloguer ----------
+  function renderMercat() {
+    var svg = $("chartMercat"); if (!svg) return;
+    var L = D.lloguer, total = L.segments.reduce(function (a, x) { return a + x.pisos; }, 0);
+    var colors = { Particulars: "var(--accent)", Empreses: "var(--blue)", "Públic": "var(--grey-bar)" };
+    var W = 900, H = 340, m = { l: 20, r: 20, t: 34, b: 62 }, n = L.segments.length;
+    var bw = (W - m.l - m.r) / n, vmax = 1300000;
+    L.segments.forEach(function (x, i) {
+      var hh = x.pisos / vmax * (H - m.t - m.b), cx = m.l + i * bw + bw / 2;
+      svg.appendChild(s("rect", { x: cx - bw * 0.36, y: H - m.b - hh, width: bw * 0.72, height: hh, rx: 4, fill: colors[x.grup] }));
+      svg.appendChild(s("text", { x: cx, y: H - m.b - hh - 20, "text-anchor": "middle", class: "lbl-strong" }, nf0.format(x.pisos)));
+      svg.appendChild(s("text", { x: cx, y: H - m.b - hh - 6, "text-anchor": "middle" }, pct(x.pisos / total * 100) + " del mercat"));
+      svg.appendChild(s("text", { x: cx, y: H - m.b + 20, "text-anchor": "middle", class: "lbl" }, x.nom));
+      svg.appendChild(s("text", { x: cx, y: H - m.b + 38, "text-anchor": "middle" }, x.grup === "Particulars" ? "llogats per llar" : ""));
+    });
+    svg.appendChild(s("line", { x1: m.l, x2: W - m.r, y1: H - m.b, y2: H - m.b, class: "axis" }));
+
+    var r = $("rent"), tb = $("mercatBody");
+    function upd() {
+      var v = Number(r.value), sum = 0, pis = 0;
+      $("rentLabel").textContent = eur(v) + " al mes (" + nf1.format(v / 100) + " €/m²)";
+      tb.innerHTML = "";
+      L.segments.forEach(function (x) {
+        var vol = x.mercat ? x.pisos * v * 12 : null;
+        if (vol != null) { sum += vol; pis += x.pisos; }
+        var tr = h("tr");
+        tr.appendChild(h("td", {}, x.grup === "Particulars" ? "Particulars amb " + x.nom.toLowerCase() : x.nom));
+        tr.appendChild(h("td", { class: "num" }, nf0.format(x.pisos)));
+        tr.appendChild(h("td", { class: "num" }, vol == null ? "lloguer social, no es calcula" : nf0.format(vol / 1e6) + " M€"));
+        tb.appendChild(tr);
+      });
+      var tr = h("tr"); tr.appendChild(h("th", {}, "Mercat privat total")); tr.appendChild(h("th", { class: "num" }, nf0.format(pis))); tr.appendChild(h("th", { class: "num" }, nf0.format(sum / 1e6) + " M€")); tb.appendChild(tr);
+      $("mercatTotal").textContent = nf1.format(sum / 1e9) + " mil M€";
+    }
+    r.addEventListener("input", upd); upd();
+
+    var ul = $("mercatFonts");
+    L.fonts.forEach(function (f) { var li = h("li"); li.appendChild(link(f[0], f[1])); ul.appendChild(li); });
+  }
+
   renderNav();
+  renderMercat();
   renderSou();
   renderRendes();
   renderCofog();

@@ -73,6 +73,30 @@ window.DATA2 = {
     ]
   },
 
+  // Mercat del lloguer d'habitatge habitual (territori fiscal comú, sense País Basc ni Navarra), 2023.
+  // Pisos de particulars: Ministeri de Drets Socials i CSIC, a partir del Panel de Hogares de l'IRPF.
+  // Repartiment per nombre de pisos llogats per llar: EsadeEcPol, mateixa font de dades.
+  // Empreses i parc públic: estimació del Banc d'Espanya citada a l'informe del Ministeri.
+  lloguer: {
+    any: 2023,
+    particulars: 2570845,
+    particulars2016: 1900883,
+    pctLlarsArrendadores: 9.3,
+    pctLlarsLlogateres: 20.2,
+    segments: [
+      { nom: "1 pis", grup: "Particulars", pisos: 1198014, mercat: true },
+      { nom: "2 a 4 pisos", grup: "Particulars", pisos: 1020625, mercat: true },
+      { nom: "5 a 9 pisos", grup: "Particulars", pisos: 259655, mercat: true },
+      { nom: "10 o més", grup: "Particulars", pisos: 92550, mercat: true },
+      { nom: "Empreses i fons", grup: "Empreses", pisos: 223552, mercat: true },
+      { nom: "Públic i social", grup: "Públic", pisos: 300000, mercat: false }
+    ],
+    fonts: [
+      ["Ministeri de Drets Socials, Consum i Agenda 2030 i CSIC (2026), «Un mercado dominado por multiarrendadores»", "https://www.dsca.gob.es/sites/default/files/prensa/Informe%201%20Multiarrendadores.pdf"],
+      ["EsadeEcPol (2026), «Radiografía del alquiler residencial en España en manos de personas físicas»", "https://www.esade.edu/ecpol/es/blog/radiografia-del-alquiler-residencial-en-espana-en-manos-de-personas-fisicas/"]
+    ]
+  },
+
   // Resultats 2025 de grans empreses. Benefici net atribuït, benefici abans d'impostos (BAI) i despesa per impost
   // sobre beneficis del compte consolidat (tot el món). isEsp = impost de societats pagat en caixa a Espanya.
   // contribEsp = contribució tributària total a Espanya (inclou IVA, IRPF i cotitzacions que l'empresa recapta).
