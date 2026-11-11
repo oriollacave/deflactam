@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="ca">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>IRPF · Deflacta'm</title>
+  <meta name="description" content="Calcula quant IRPF pagues de més perquè els trams no s'actualitzen amb la inflació des del 2015.">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <nav class="top" id="nav"></nav>
+
+  <header class="hero sm">
+    <div class="wrap">
+      <div class="kicker">La pujada d'impostos que ningú ha votat</div>
+      <h1>Cada any pagues més IRPF encara que no cobris més.</h1>
+      <p class="lead">Quan el teu sou puja per compensar la inflació, Hisenda el tracta com si fossis més ric. Els trams estatals de l'IRPF no s'actualitzen des del 2015.</p>
+    </div>
+  </header>
+
+  <section class="block" id="calculadora">
+    <div class="wrap">
+      <h2>Quant pagues de més?</h2>
+      <p class="sub">Compara l'IRPF que pagues el 2025 amb el que pagaries si els trams, el mínim personal i les despeses deduïbles s'haguessin actualitzat amb l'IPC. Assalariat resident a Catalunya, declaració individual, sense fills.</p>
+      <div class="grid2">
+        <div class="card calc">
+          <div class="row">
+            <label for="gross">Salari brut anual (€)</label>
+            <input type="number" id="gross" min="0" max="300000" step="500" value="30000" inputmode="numeric">
+            <input type="range" id="grossRange" min="12000" max="120000" step="500" value="30000" aria-label="Salari brut anual">
+          </div>
+          <div class="row">
+            <label>Actualitzar amb l'IPC des de</label>
+            <div class="seg" id="baseYear">
+              <button type="button" data-year="2015" aria-pressed="true">2015 (última reforma)</button>
+              <button type="button" data-year="2019" aria-pressed="false">2019</button>
+              <button type="button" data-year="2021" aria-pressed="false">2021</button>
+            </div>
+          </div>
+          <table class="mini" id="breakdown"></table>
+        </div>
+        <div class="card result">
+          <div class="big" id="extra">0 €</div>
+          <div class="unit">més d'IRPF cada any</div>
+          <p class="say" id="say"></p>
+          <div class="btns">
+            <button class="btn" id="copyShare" type="button">Copia el missatge per compartir</button>
+            <a class="btn ghost" href="#actua">Envia-ho als teus diputats</a>
+          </div>
+          <div class="toast" id="toast1" role="status"></div>
+        </div>
+      </div>
+      <h3>Qui ho paga? L'impost ocult per nivell de sou</h3>
+      <p class="sub">Euros d'IRPF de més cada any per no haver actualitzat la tarifa des de l'any triat. El punt és el teu sou.</p>
+      <div class="card"><svg class="chart" id="chartExtra" viewBox="0 0 900 340" role="img" aria-label="IRPF extra per nivell de sou"></svg></div>
+      <p class="caption">Els sous molt baixos estan protegits per la reducció per rendiments del treball, que sí que s'ha actualitzat. L'efecte es concentra a partir de ~20.000 € bruts. Càlcul conservador: no deflacta l'escala catalana (reformada el 2025) ni la reducció per treball.</p>
+      <details>
+        <summary>Com es calcula</summary>
+        <p class="caption">Salari brut − cotització del treballador (6,48%, amb base màxima) − 2.000 € de despeses = rendiment net. Es resta la reducció per rendiments del treball (art. 20 LIRPF, fins a 7.302 €). A la base resultant s'hi aplica l'escala estatal (art. 63 LIRPF) i la catalana (art. 611-1 del Codi tributari, vigent des del 2025), i se'n resta l'efecte del mínim personal de 5.550 €. No inclou deduccions autonòmiques, fills, discapacitat ni altres rendes. L'escenari «deflactat» multiplica per l'IPC acumulat (INE, mitjana anual) els trams estatals, el mínim personal i els 2.000 € de despeses, que no s'han tocat des del 2015. És una estimació orientativa, no una declaració.</p>
+      </details>
+    </div>
+  </section>
+
+  <section class="block" id="actua">
+    <div class="wrap">
+      <div class="kicker">Actua</div>
+      <h2>Cinc coses concretes que pots fer avui</h2>
+      <ol class="actions">
+        <li><strong>Calcula i comparteix la teva xifra.</strong> Una xifra personal convenç més que una estadística.</li>
+        <li><strong>Escriu als diputats de la teva circumscripció.</strong> Copia la carta d'aquí sota, revisa-la i envia-la des del teu correu (les adreces són a la web del Congrés).</li>
+        <li><strong>Demana una sola cosa:</strong> deflactació automàtica de l'IRPF cada any amb l'IPC, per llei, com ja es fa amb les pensions.</li>
+        <li><strong>Exigeix transparència empresarial:</strong> publicació anual de l'impost de societats pagat a Espanya per cada gran empresa.</li>
+        <li><strong>Suma't a qui ja s'organitza:</strong> sindicats de llogateres per a l'habitatge; sindicats i associacions professionals per a la clàusula IPC als convenis.</li>
+      </ol>
+      <div class="card letter">
+        <label for="letter" style="font-size:14px;color:var(--muted)">Carta (s'actualitza amb la teva xifra)</label>
+        <textarea id="letter"></textarea>
+        <div class="btns"><button class="btn" id="copyLetter" type="button">Copia la carta</button></div>
+        <div class="toast" id="toast2" role="status"></div>
+      </div>
+    </div>
+  </section>
+
+  <footer id="footer"></footer>
+  <script src="js/irpf.js"></script>
+  <script src="js/data.js"></script>
+  <script src="js/data2.js"></script>
+  <script src="js/app.js"></script>
+  <script src="js/pages.js"></script>
+</body>
+</html>

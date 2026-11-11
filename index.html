@@ -4,194 +4,56 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Deflacta'm</title>
-  <meta name="description" content="Quant IRPF pagues de més perquè Hisenda no actualitza els trams amb la inflació, qui paga quant d'impostos i qui són els grans propietaris d'habitatge.">
+  <meta name="description" content="Per què anem tan justos amb el sou: on va el que guanyes, quant IRPF pagues de més, on van els impostos i quant paguen les grans empreses.">
   <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
-  <nav class="top">
-    <div class="wrap">
-      <div class="brand">Deflacta<span>'m</span></div>
-      <a class="link" href="#calculadora">Calculadora</a>
-      <a class="link" href="#impostos">Qui paga què</a>
-      <a class="link" href="#habitatge">Habitatge</a>
-      <a class="link" href="#actua">Actua</a>
-      <a class="link" href="#fonts">Fonts</a>
-    </div>
-  </nav>
+  <nav class="top" id="nav"></nav>
 
   <header class="hero">
     <div class="wrap">
-      <div class="kicker">La pujada d'impostos que ningú ha votat</div>
-      <h1>Cada any pagues més IRPF encara que no cobris més.</h1>
-      <p class="lead">Quan el teu sou puja per compensar la inflació, Hisenda el tracta com si fossis més ric. Els trams estatals de l'IRPF no s'actualitzen des del 2015. El resultat és una pujada d'impostos silenciosa que paga sobretot la classe mitjana assalariada.</p>
-      <div class="stats" id="heroStats"></div>
+      <div class="kicker">Dades públiques, explicades clar</div>
+      <h1>Per què anem tan justos amb el sou?</h1>
+      <p class="lead">Des del 2019 els preus han pujat un 21,7% i el sou real d'un treballador a jornada completa encara és un 2% més baix. Aquí pots veure, amb dades oficials, on va el que guanyes, quant pagues de més, on van els impostos i quant paguen les grans empreses.</p>
+      <div class="cards" style="margin-top:28px">
+        <a class="cardlink" href="sou.html"><div class="q">On va el teu sou?</div><div class="a">Habitatge, menjar i transport s'emporten gairebé el 60%. Mira qui cobra cada partida.</div><div class="go">Mira-ho →</div></a>
+        <a class="cardlink" href="irpf.html"><div class="q">Quant IRPF pagues de més?</div><div class="a">Els trams no s'actualitzen amb la inflació des del 2015. Calcula la teva xifra.</div><div class="go">Calcula →</div></a>
+        <a class="cardlink" href="impostos.html"><div class="q">On van els impostos?</div><div class="a">Cercador de la despesa pública: pensions, sanitat, interessos del deute i la resta.</div><div class="go">Cerca →</div></a>
+        <a class="cardlink" href="empreses.html"><div class="q">Quant guanyen i quant paguen les grans empreses?</div><div class="a">Cercador amb benefici, impostos i seu de 25 empreses, i el camí d'un euro fins a la butxaca.</div><div class="go">Cerca →</div></a>
+        <a class="cardlink" href="habitatge.html"><div class="q">Qui són els grans propietaris?</div><div class="a">Els bancs i fons amb més pisos de lloguer i quant ingressen.</div><div class="go">Mira-ho →</div></a>
+      </div>
     </div>
   </header>
 
-  <section class="block" id="calculadora">
+  <section class="block">
     <div class="wrap">
-      <div class="kicker">1 · Calculadora</div>
-      <h2>Quant pagues de més?</h2>
-      <p class="sub">Compara l'IRPF que pagues el 2025 amb el que pagaries si els trams, el mínim personal i les despeses deduïbles s'haguessin actualitzat amb l'IPC. Assalariat resident a Catalunya, declaració individual, sense fills.</p>
-      <div class="grid2">
-        <div class="card calc">
-          <div class="row">
-            <label for="gross">Salari brut anual (€)</label>
-            <input type="number" id="gross" min="0" max="300000" step="500" value="30000" inputmode="numeric">
-            <input type="range" id="grossRange" min="12000" max="120000" step="500" value="30000" aria-label="Salari brut anual">
-          </div>
-          <div class="row">
-            <label>Actualitzar amb l'IPC des de</label>
-            <div class="seg" id="baseYear">
-              <button type="button" data-year="2015" aria-pressed="true">2015 (última reforma)</button>
-              <button type="button" data-year="2019" aria-pressed="false">2019</button>
-              <button type="button" data-year="2021" aria-pressed="false">2021</button>
-            </div>
-          </div>
-          <table class="mini" id="breakdown"></table>
-        </div>
-        <div class="card result">
-          <div class="big" id="extra">0 €</div>
-          <div class="unit">més d'IRPF cada any</div>
-          <p class="say" id="say"></p>
-          <div class="btns">
-            <button class="btn" id="copyShare" type="button">Copia el missatge per compartir</button>
-            <a class="btn ghost" href="#actua">Envia-ho als teus diputats</a>
-          </div>
-          <div class="toast" id="toast1" role="status"></div>
-        </div>
+      <div class="kicker">El resum</div>
+      <h2>Quatre causes, amb dades</h2>
+      <div class="vs">
+        <div class="item"><div class="g">1. L'habitatge se n'ho emporta tot</div><p class="nums">És el 32,4% de la despesa d'una llar mitjana i el 40,3% de les que menys gasten. Un jove que lloga sol hi deixa el 98,7% del sou. <a href="sou.html">El teu sou</a> · <a href="habitatge.html">Habitatge</a></p></div>
+        <div class="item"><div class="g">2. Els sous no han seguit els preus</div><p class="nums">Preus +21,7% des del 2019; sou real a jornada completa, −2%. La productivitat per treballador és igual que el 2019, i sense productivitat els sous no poden pujar gaire. <a href="sou.html#rendes">Salaris i beneficis</a></p></div>
+        <div class="item"><div class="g">3. Un impost que puja sol</div><p class="nums">L'IRPF no s'actualitza amb la inflació: 9.750 M€ cobrats de més entre 2021 i 2024. <a href="irpf.html">Calcula el teu</a></p></div>
+        <div class="item"><div class="g">4. No tothom paga igual</div><p class="nums">Una petita empresa paga el 18,7% del seu benefici; les de més de 5.000 treballadors, el 4,75%. <a href="empreses.html">Empreses</a></p></div>
       </div>
-      <h3>Qui ho paga? L'impost ocult per nivell de sou</h3>
-      <p class="sub">Euros d'IRPF de més cada any per no haver actualitzat la tarifa des de l'any triat. El punt és el teu sou.</p>
-      <div class="card"><svg class="chart" id="chartExtra" viewBox="0 0 900 340" role="img" aria-label="IRPF extra per nivell de sou"></svg></div>
-      <p class="caption">Els sous molt baixos estan protegits per la reducció per rendiments del treball, que sí que s'ha actualitzat. L'efecte es concentra a partir de ~20.000 € bruts. Càlcul conservador: no deflacta l'escala catalana (reformada el 2025) ni la reducció per treball.</p>
-    </div>
-  </section>
-
-  <section class="block" id="impostos">
-    <div class="wrap">
-      <div class="kicker">2 · Qui paga què</div>
-      <h2>La gran empresa paga sobre el benefici la meitat que una pime.</h2>
-      <p class="sub">Tipus efectiu = impost pagat sobre el benefici (empreses) o sobre el sou brut (treballadors, només IRPF). El tipus nominal de l'Impost de Societats és del 25% (30% per a banca i energètiques), però les deduccions i compensacions el redueixen molt més a les grans.</p>
-      <div class="legend">
-        <span><i style="background:var(--accent)"></i>Assalariat (IRPF, calculat)</span>
-        <span><i style="background:var(--blue)"></i>Pimes</span>
-        <span><i style="background:var(--grey-bar)"></i>Grans empreses i banca</span>
-      </div>
-      <div class="card"><svg class="chart" id="chartTax" viewBox="0 0 900 520" role="img" aria-label="Tipus efectius per grup"></svg></div>
-      <p class="caption" id="taxCaption"></p>
-
-      <h3>En euros: quant guanyen i quant paguen (2023)</h3>
-      <div class="vs" id="absolutes"></div>
-      <div class="note" style="margin-top:18px">Matís honest: el benefici comptable i la base imposable no són el mateix. Part de la diferència ve de compensar pèrdues d'anys anteriors i d'evitar la doble imposició de beneficis ja tributats a l'estranger, que són mecanismes legals i raonables. Però aquests mecanismes beneficien sobretot qui té estructura per aprofitar-los. Des del 2024 hi ha un tipus mínim global del 15% per a grups de més de 750 M€ de facturació: cal vigilar que s'apliqui de veritat.</div>
-      <h3 id="cami">El camí d'un euro fins a la butxaca</h3>
-      <p class="sub">Comparar 28% contra 9% no és just: l'empresa paga sobre el benefici, i quan el reparteix l'accionista torna a pagar. Aquí seguim la mateixa quantitat de diners generats per tres camins.</p>
-      <div class="card calc">
-        <div class="grid2">
-          <div class="row">
-            <label for="chainX">Diners generats (cost laboral total o benefici abans d'impostos)</label>
-            <input type="number" id="chainX" min="1000" max="1000000" step="1000" value="50000" inputmode="numeric">
-            <input type="range" id="chainXRange" min="10000" max="400000" step="5000" value="50000" aria-label="Diners generats">
-          </div>
-          <div class="row">
-            <label>Quin Impost de Societats paga l'empresa?</label>
-            <div class="seg" id="corpRate">
-              <button type="button" data-t="25" aria-pressed="false">Nominal 25%</button>
-              <button type="button" data-t="18.65" aria-pressed="false">Petita empresa 18,7%</button>
-              <button type="button" data-t="8.87" aria-pressed="true">Gran empresa 8,9%</button>
-              <button type="button" data-t="4.26" aria-pressed="false">Banca 4,3%</button>
-            </div>
-          </div>
-        </div>
-        <div class="legend">
-          <span><i style="background:var(--grey-bar)"></i>Impost de Societats</span>
-          <span><i style="background:var(--accent)"></i>IRPF</span>
-          <span><i style="background:var(--blue)"></i>Cotitzacions (generen pensió i atur)</span>
-          <span><i style="background:var(--ok)"></i>Net a la butxaca</span>
-        </div>
-        <svg class="chart" id="chartChain" viewBox="0 0 900 300" role="img" aria-label="Comparació treball, dividend i societat patrimonial"></svg>
-        <p class="say" id="chainRead" style="font-size:16px;margin:10px 0 4px"></p>
-        <table class="mini" id="chainTable" style="margin-top:12px"></table>
-      </div>
-      <div class="grid2" style="margin-top:18px">
-        <div class="note"><strong>Per què les grans surten tan baix?</strong> Part del seu benefici es fa a l'estranger i ja hi ha tributat; per no pagar dues vegades, a Espanya s'exclou. També compensen pèrdues d'anys anteriors i apliquen deduccions (R+D, etc.) que una pime gairebé no pot fer servir. Això explica part de la diferència, no tota.</div>
-        <div class="note"><strong>El forat de les societats patrimonials.</strong> Si el dividend el cobra una societat del soci (amb un 5% o més de l'empresa), només paga ~1,25% (art. 21 de la Llei de l'Impost de Societats). L'IRPF queda ajornat fins que el soci tregui els diners de la seva societat, cosa que pot no passar mai. És l'eina habitual dels grans patrimonis per reinvertir pagant molt poc.</div>
-      </div>
-
-      <h3>Beneficis de la gran banca el 2025</h3>
-      <div class="card"><svg class="chart" id="chartBanks" viewBox="0 0 900 170" role="img" aria-label="Beneficis bancs 2025"></svg></div>
-      <p class="caption" id="bankCaption"></p>
-    </div>
-  </section>
-
-  <section class="block" id="habitatge">
-    <div class="wrap">
-      <div class="kicker">3 · Habitatge</div>
-      <h2>Qui són els grans propietaris de pisos de lloguer?</h2>
-      <p class="sub">Entitats amb 50 o més pisos llogats, segons les fiances dipositades a 11 comunitats autònomes (inclosa Catalunya). Són una part petita del mercat total però concentrada a les ciutats on el lloguer és més tens.</p>
-      <div class="grid2">
-        <div class="card">
-          <h3 style="margin-top:0">Els cinc més grans (pisos llogats)</h3>
-          <svg class="chart" id="chartTop" viewBox="0 0 520 260" role="img" aria-label="Grans tenidors"></svg>
-        </div>
-        <div class="card">
-          <h3 style="margin-top:0">303.150 pisos en mans de «megatenidors»</h3>
-          <svg class="chart" id="chartComp" viewBox="0 0 520 260" role="img" aria-label="Composició megatenidors"></svg>
-        </div>
-      </div>
-      <h3>Quant cobren? Fes l'estimació</h3>
-      <div class="card">
-        <label for="rent" style="font-size:14px;color:var(--muted)">Lloguer mitjà mensual dels seus pisos</label>
-        <input type="range" id="rent" min="500" max="1500" step="50" value="900" style="width:100%;accent-color:var(--accent)">
-        <div class="grid2" style="margin-top:12px">
-          <div><div class="slider-out" id="rentOut"></div><div class="caption">l'any, només les empreses i fons privats (178.000 pisos)</div></div>
-          <div><div class="slider-out" id="rentCaixa"></div><div class="caption">l'any, CaixaBank i Blackstone junts (41.600 pisos)</div></div>
-        </div>
-        <p class="caption">Estimació il·lustrativa: pisos × lloguer × 12. No descompta despeses ni impostos. Ajusta el lloguer per veure l'ordre de magnitud.</p>
-      </div>
-      <h3>Context imprescindible</h3>
-      <ul class="facts" id="facts"></ul>
-    </div>
-  </section>
-
-  <section class="block" id="actua">
-    <div class="wrap">
-      <div class="kicker">4 · Actua</div>
-      <h2>Cinc coses concretes que pots fer avui</h2>
-      <ol class="actions">
-        <li><strong>Calcula i comparteix la teva xifra.</strong> Una xifra personal convenç més que una estadística. Fes servir el botó de la calculadora.</li>
-        <li><strong>Escriu als diputats de la teva circumscripció.</strong> Copia la carta d'aquí sota, revisa-la i envia-la des del teu correu als diputats de Barcelona, Girona, Lleida o Tarragona (les adreces són a la web del Congrés).</li>
-        <li><strong>Demana una sola cosa:</strong> deflactació automàtica de l'IRPF cada any amb l'IPC, per llei, com ja es fa amb les pensions.</li>
-        <li><strong>Exigeix transparència empresarial:</strong> publicació anual del tipus efectiu de l'Impost de Societats de cada empresa de l'IBEX.</li>
-        <li><strong>Suma't a qui ja s'organitza:</strong> sindicats de llogateres per a l'habitatge; sindicats i associacions professionals per a la clàusula IPC als convenis.</li>
-      </ol>
-      <div class="card letter">
-        <label for="letter" style="font-size:14px;color:var(--muted)">Carta (s'actualitza amb la teva xifra)</label>
-        <textarea id="letter"></textarea>
-        <div class="btns"><button class="btn" id="copyLetter" type="button">Copia la carta</button></div>
-        <div class="toast" id="toast2" role="status"></div>
-      </div>
+      <h3>L'IRPF, en xifres</h3>
+      <div class="stats" id="heroStats"></div>
     </div>
   </section>
 
   <section class="block" id="fonts">
     <div class="wrap">
-      <div class="kicker">Fonts i metodologia</div>
+      <div class="kicker">Fonts</div>
       <h2>D'on surt cada xifra</h2>
       <ul class="sources" id="sources"></ul>
-      <details>
-        <summary>Com es calcula l'IRPF</summary>
-        <p class="caption">Salari brut − cotització del treballador (6,48%, amb base màxima) − 2.000 € de despeses = rendiment net. Es resta la reducció per rendiments del treball (art. 20 LIRPF, fins a 7.302 €). A la base resultant s'hi aplica l'escala estatal (art. 63 LIRPF) i la catalana (art. 611-1 del Codi tributari, vigent des del 2025), i se'n resta l'efecte del mínim personal de 5.550 €. No inclou deduccions autonòmiques, fills, discapacitat ni altres rendes. L'escenari «deflactat» multiplica per l'IPC acumulat (INE, mitjana anual) els trams estatals, el mínim personal i els 2.000 € de despeses, que no s'han tocat des del 2015. És una estimació orientativa, no una declaració.</p>
-      </details>
+      <p class="caption">Sou real i preus: <a href="https://okdiario.com/economia/cuentas-publicas/espana-desperdicia-siete-anos-crecimiento-salarios-reales-siguen-debajo-2019-19554820" target="_blank" rel="noopener">Funcas, via OKdiario</a>. Productivitat: <a href="https://www.bbvaresearch.com/publicaciones/espana-del-boom-del-empleo-al-salto-necesario-en-productividad/" target="_blank" rel="noopener">BBVA Research</a>.</p>
     </div>
   </section>
 
-  <footer>
-    <div class="wrap">Projecte ciutadà. Dades consultades el novembre del 2026. Codi obert: millores i correccions benvingudes.</div>
-  </footer>
-
+  <footer id="footer"></footer>
   <script src="js/irpf.js"></script>
   <script src="js/data.js"></script>
+  <script src="js/data2.js"></script>
   <script src="js/app.js"></script>
+  <script src="js/pages.js"></script>
 </body>
 </html>

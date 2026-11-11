@@ -56,6 +56,7 @@
   // ---------- calculator ----------
   function calc() {
     var c = IRPF.compare(state.gross, state.baseYear);
+    if (!$("extra")) { if ($("chartTax")) drawTaxChart(); return; }
     $("extra").textContent = eur(c.extra);
     var days = c.real.irpf > 0 ? c.extra / (state.gross / 365) : 0;
     var inflation = (c.factor - 1) * 100;
@@ -82,8 +83,8 @@
       t.appendChild(tr);
     });
     drawExtraChart(c);
-    updateLetter(c);
-    drawTaxChart();
+    if ($("letter")) updateLetter(c);
+    if ($("chartTax")) drawTaxChart();
   }
 
   function shareText() {
@@ -371,6 +372,12 @@
       [D.bancaBeneficis2025.src, D.bancaBeneficis2025.url],
       [D.habitatge.src, D.habitatge.url]
     ];
+    if (window.DATA2) {
+      list.push([window.DATA2.epf.src, window.DATA2.epf.url]);
+      list.push([window.DATA2.rendes.src, window.DATA2.rendes.url]);
+      list.push([window.DATA2.cofog.src, window.DATA2.cofog.url]);
+      list.push(["Resultats 2025 de cada empresa: enllaç al nom de l'empresa al cercador", "empreses.html#cercador"]);
+    }
     D.habitatge.context.forEach(function (f) { list.push([f.src, f.url]); });
     var ul = $("sources");
     list.forEach(function (s) {
@@ -380,15 +387,12 @@
   }
 
   // ---------- init ----------
-  renderHero();
-  bindCalc();
+  if ($("heroStats")) renderHero();
+  if ($("gross")) bindCalc();
   calc();
-  renderAbsolutes();
-  bindChain();
-  drawBanks();
-  drawTop();
-  drawComp();
-  bindRent();
-  renderFacts();
-  renderSources();
+  if ($("absolutes")) renderAbsolutes();
+  if ($("chartChain")) bindChain();
+  if ($("chartBanks")) drawBanks();
+  if ($("chartTop")) { drawTop(); drawComp(); bindRent(); renderFacts(); }
+  if ($("sources")) renderSources();
 })();

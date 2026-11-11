@@ -25,12 +25,20 @@ node test/irpf.test.js
 ## Estructura
 
 ```
-index.html        pàgina
+index.html        portada: resum i enllaços
+sou.html          on va el sou, qui el cobra, salaris i beneficis
+irpf.html         calculadora de l'IRPF no deflactat i carta als diputats
+impostos.html     cercador de la despesa pública per funcions
+empreses.html     cercador d'empreses, tipus efectius i camí d'un euro
+habitatge.html    grans tenidors
 css/styles.css    estils (mode clar/fosc)
 js/irpf.js        motor de càlcul IRPF (navegador i Node)
-js/data.js        totes les dades amb font i URL
-js/app.js         interfície i gràfics SVG
+js/data.js        dades d'IRPF, societats i habitatge, amb font
+js/data2.js       dades de despesa de les llars, despesa pública i empreses, amb font
+js/app.js         calculadores i gràfics
+js/pages.js       menú comú, cercadors i pàgines noves
 test/             tests del càlcul
+CONTRIBUTING.md   com col·laborar
 ```
 
 ## Metodologia i límits

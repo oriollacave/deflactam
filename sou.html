@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="ca">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>El teu sou · Deflacta'm</title>
+  <meta name="description" content="On va el sou d'una llar, quines empreses cobren cada partida i com es reparteix la riquesa entre salaris i beneficis.">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <nav class="top" id="nav"></nav>
+
+  <header class="hero sm">
+    <div class="wrap">
+      <div class="kicker">El teu sou</div>
+      <h1>Gairebé el 60% del que gastes se'n va en tres coses.</h1>
+      <p class="lead">Habitatge, menjar i transport. Per a les llars que menys gasten, només habitatge i menjar ja són el 60%.</p>
+    </div>
+  </header>
+
+  <section class="block">
+    <div class="wrap">
+      <h2>On va cada euro</h2>
+      <p class="sub">Posa el que gasta la teva llar cada mes i mira com es reparteix segons l'estructura de despesa de les llars espanyoles (INE, 2024).</p>
+      <div class="card calc">
+        <div class="grid2">
+          <div class="row">
+            <label for="souNet">Despesa mensual de la llar (€)</label>
+            <input type="number" id="souNet" min="0" max="20000" step="50" value="2800" inputmode="numeric">
+          </div>
+          <div class="row">
+            <label>Tipus de llar</label>
+            <div class="seg" id="souQ">
+              <button type="button" data-q="q1" aria-pressed="false">El 20% que menys gasta</button>
+              <button type="button" data-q="mitjana" aria-pressed="true">Mitjana</button>
+              <button type="button" data-q="q5" aria-pressed="false">El 20% que més gasta</button>
+            </div>
+          </div>
+        </div>
+        <p class="say" id="souSay" style="font-size:16px"></p>
+        <svg class="chart" id="souBars" viewBox="0 0 900 400" role="img" aria-label="Repartiment de la despesa de la llar"></svg>
+      </div>
+      <p class="caption">La despesa mitjana per llar va ser de 34.044 € el 2024 (2.837 € al mes). Per a qui és propietari, l'INE hi compta un lloguer imputat: la mitjana amaga molta diferència entre qui paga lloguer o hipoteca i qui no. Font: <a href="https://ine.es/dyngs/Prensa/EPF2024.htm" target="_blank" rel="noopener">INE, Enquesta de pressupostos familiars 2024</a>.</p>
+
+      <h3>Qui cobra aquests diners?</h3>
+      <p class="sub">Les empreses que hi ha darrere de les partides més grans, i què van guanyar el 2025.</p>
+      <div class="vs" id="quiCobra"></div>
+    </div>
+  </section>
+
+  <section class="block" id="rendes">
+    <div class="wrap">
+      <div class="kicker">Salaris i beneficis</div>
+      <h2>Qui es queda la riquesa que es genera?</h2>
+      <p class="sub">Tot el que produeix l'economia en un any (el PIB) es reparteix en tres parts: salaris, excedent de les empreses i impostos sobre la producció.</p>
+      <div class="legend">
+        <span><i style="background:var(--accent)"></i>Salaris (amb cotitzacions)</span>
+        <span><i style="background:var(--blue)"></i>Excedent d'empreses, autònoms i lloguers</span>
+        <span><i style="background:var(--grey-bar)"></i>Impostos sobre la producció</span>
+      </div>
+      <div class="card"><svg class="chart" id="chartRendes" viewBox="0 0 900 150" role="img" aria-label="Repartiment del PIB entre salaris i excedent"></svg></div>
+      <p class="caption">Font: <a href="https://www.ine.es/dyngs/Prensa/CNA2025.htm" target="_blank" rel="noopener">INE, Comptabilitat nacional anual 2023-2025</a>. Els salaris inclouen les cotitzacions que paga l'empresa. L'excedent inclou també la renda dels autònoms, els lloguers (reals i imputats) i el desgast de maquinària i edificis: no tot és benefici empresarial.</p>
+      <div class="grid2" style="margin-top:18px">
+        <div class="note"><strong>El que diuen les dades.</strong> La part dels salaris ha pujat del 47,5% al 48,4% entre 2023 i 2025. El 2025 la massa salarial va créixer un 7,2% i l'excedent un 3,4%. En conjunt, les empreses no s'estan quedant una part més gran del pastís.</div>
+        <div class="note"><strong>Llavors, per què no es nota?</strong> Perquè la massa salarial creix sobretot perquè hi ha més gent treballant (+2,8% de llocs de treball), no perquè cada sou pugi gaire. La productivitat va créixer un 0,6%. I el que puja el sou se'l mengen l'habitatge i l'IRPF sense deflactar.</div>
+      </div>
+      <h3>On sí que hi ha diferències</h3>
+      <ul class="facts">
+        <li>Entre sectors: banca i energia han tingut beneficis rècord, mentre que la rendibilitat de les pimes ha baixat segons la seva patronal. <a href="empreses.html">Mira empresa per empresa</a>.</li>
+        <li>Entre qui té patrimoni i qui no: el 10% més ric té el 52,7% de la riquesa, sobretot en habitatge. <a href="habitatge.html">Habitatge</a>.</li>
+        <li>Entre generacions: qui ja tenia pis no pateix la pujada de l'habitatge; qui ha d'entrar-hi ara, sí.</li>
+      </ul>
+    </div>
+  </section>
+
+  <footer id="footer"></footer>
+  <script src="js/irpf.js"></script>
+  <script src="js/data.js"></script>
+  <script src="js/data2.js"></script>
+  <script src="js/app.js"></script>
+  <script src="js/pages.js"></script>
+</body>
+</html>

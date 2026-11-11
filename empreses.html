@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="ca">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Empreses · Deflacta'm</title>
+  <meta name="description" content="Cercador de grans empreses: quant van guanyar el 2025, quant van pagar d'impostos i on tenen la seu.">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <nav class="top" id="nav"></nav>
+
+  <header class="hero sm">
+    <div class="wrap">
+      <div class="kicker">Empreses</div>
+      <h1>Quant guanyen i quant paguen les grans empreses.</h1>
+      <p class="lead">Benefici, impost sobre beneficis i seu de 25 grans empreses el 2025, i el percentatge real que paga cada tipus d'empresa.</p>
+    </div>
+  </header>
+
+  <section class="block" id="cercador">
+    <div class="wrap">
+      <h2>Cercador d'empreses</h2>
+      <div class="toolbar">
+        <input class="search" type="search" id="empSearch" placeholder="Cerca per nom, sector o ciutat: banca, energia, Madrid..." aria-label="Cerca una empresa">
+        <select id="empSort" aria-label="Ordena">
+          <option value="net">Ordena per benefici net</option>
+          <option value="imp">Ordena per impost sobre beneficis</option>
+          <option value="rate">Ordena per tipus efectiu (de menys a més)</option>
+          <option value="isEsp">Ordena per impost de societats pagat a Espanya</option>
+        </select>
+      </div>
+      <div class="tablewrap">
+        <table class="data">
+          <thead><tr>
+            <th>Empresa, sector i seu</th>
+            <th class="num">Benefici net 2025 (M€)</th>
+            <th class="num">Impost sobre beneficis (M€)</th>
+            <th class="num">Tipus efectiu</th>
+            <th class="num">Impost de societats pagat a Espanya (M€)</th>
+            <th>Pes d'Espanya i notes</th>
+          </tr></thead>
+          <tbody id="empBody"></tbody>
+        </table>
+      </div>
+      <p class="empty" id="empEmpty"></p>
+      <p class="caption"><strong>Com llegir-ho.</strong> El benefici i l'impost són del grup a tot el món (compte de resultats consolidat). El tipus efectiu és l'impost dividit pel benefici abans d'impostos. L'impost de societats pagat a Espanya és el que l'empresa ha ingressat realment a Hisenda aquell any, i només hi surt si l'empresa el publica. Un guió vol dir que no hem trobat la dada amb font. No hi sumem l'IVA, l'IRPF dels treballadors ni les cotitzacions que les empreses recapten, perquè no els paguen elles. Cada nom enllaça a la font. Dades recollides dels comptes i informes fiscals del 2025; si veus un error, <a href="https://github.com/oriollacave/deflactam/issues" target="_blank" rel="noopener">avisa'ns</a>.</p>
+    </div>
+  </section>
+
+  <section class="block" id="impostos">
+    <div class="wrap">
+      <div class="kicker">Qui paga què</div>
+      <h2>La gran empresa paga sobre el benefici la meitat que una pime.</h2>
+      <p class="sub">Tipus efectiu = impost pagat sobre el benefici (empreses) o sobre el sou brut (treballadors, només IRPF). El tipus nominal de l'Impost de Societats és del 25% (30% per a banca i energètiques), però les deduccions i compensacions el redueixen molt més a les grans.</p>
+      <div class="legend">
+        <span><i style="background:var(--accent)"></i>Assalariat (IRPF, calculat)</span>
+        <span><i style="background:var(--blue)"></i>Pimes</span>
+        <span><i style="background:var(--grey-bar)"></i>Grans empreses i banca</span>
+      </div>
+      <div class="card"><svg class="chart" id="chartTax" viewBox="0 0 900 520" role="img" aria-label="Tipus efectius per grup"></svg></div>
+      <p class="caption" id="taxCaption"></p>
+
+      <h3>En euros: quant guanyen i quant paguen (2023)</h3>
+      <div class="vs" id="absolutes"></div>
+      <div class="note" style="margin-top:18px">Per què aquestes xifres d'Hisenda són més baixes que les del cercador? Perquè aquí es mira només l'impost espanyol sobre tot el benefici del grup, i al cercador, l'impost pagat a tots els països. Part de la diferència ve de beneficis fets a l'estranger que ja hi han tributat i de pèrdues d'anys anteriors, que són mecanismes legals. Des del 2024 hi ha un tipus mínim global del 15% per a grups de més de 750 M€ de facturació.</div>
+
+      <h3 id="cami">El camí d'un euro fins a la butxaca</h3>
+      <p class="sub">L'empresa paga sobre el benefici, i quan el reparteix l'accionista torna a pagar. Aquí seguim la mateixa quantitat de diners generats per tres camins.</p>
+      <div class="card calc">
+        <div class="grid2">
+          <div class="row">
+            <label for="chainX">Diners generats (cost laboral total o benefici abans d'impostos)</label>
+            <input type="number" id="chainX" min="1000" max="1000000" step="1000" value="50000" inputmode="numeric">
+            <input type="range" id="chainXRange" min="10000" max="400000" step="5000" value="50000" aria-label="Diners generats">
+          </div>
+          <div class="row">
+            <label>Quin Impost de Societats paga l'empresa?</label>
+            <div class="seg" id="corpRate">
+              <button type="button" data-t="25" aria-pressed="false">Nominal 25%</button>
+              <button type="button" data-t="18.65" aria-pressed="false">Petita empresa 18,7%</button>
+              <button type="button" data-t="8.87" aria-pressed="true">Gran empresa 8,9%</button>
+              <button type="button" data-t="4.26" aria-pressed="false">Banca 4,3%</button>
+            </div>
+          </div>
+        </div>
+        <div class="legend">
+          <span><i style="background:var(--grey-bar)"></i>Impost de Societats</span>
+          <span><i style="background:var(--accent)"></i>IRPF</span>
+          <span><i style="background:var(--blue)"></i>Cotitzacions (generen pensió i atur)</span>
+          <span><i style="background:var(--ok)"></i>Net a la butxaca</span>
+        </div>
+        <svg class="chart" id="chartChain" viewBox="0 0 900 300" role="img" aria-label="Comparació treball, dividend i societat patrimonial"></svg>
+        <p class="say" id="chainRead" style="font-size:16px;margin:10px 0 4px"></p>
+        <table class="mini" id="chainTable" style="margin-top:12px"></table>
+      </div>
+      <div class="grid2" style="margin-top:18px">
+        <div class="note"><strong>Per què les grans surten tan baix?</strong> Part del seu benefici es fa a l'estranger i ja hi ha tributat; per no pagar dues vegades, a Espanya s'exclou. També compensen pèrdues d'anys anteriors i apliquen deduccions (R+D, etc.) que una pime gairebé no pot fer servir. Això explica part de la diferència, no tota.</div>
+        <div class="note"><strong>El forat de les societats patrimonials.</strong> Si el dividend el cobra una societat del soci (amb un 5% o més de l'empresa), només paga ~1,25% (art. 21 de la Llei de l'Impost de Societats). L'IRPF queda ajornat fins que el soci tregui els diners de la seva societat, cosa que pot no passar mai.</div>
+      </div>
+    </div>
+  </section>
+
+  <footer id="footer"></footer>
+  <script src="js/irpf.js"></script>
+  <script src="js/data.js"></script>
+  <script src="js/data2.js"></script>
+  <script src="js/app.js"></script>
+  <script src="js/pages.js"></script>
+</body>
+</html>

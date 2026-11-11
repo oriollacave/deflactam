@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="ca">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>On van els impostos · Deflacta'm</title>
+  <meta name="description" content="Cercador de la despesa pública a Espanya per funcions: pensions, sanitat, educació, interessos del deute i la resta.">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <nav class="top" id="nav"></nav>
+
+  <header class="hero sm">
+    <div class="wrap">
+      <div class="kicker">On van els impostos</div>
+      <h1>De cada 100 € públics, 41 són protecció social i 28 són pensions.</h1>
+      <p class="lead">Tota la despesa de l'Estat, les comunitats autònomes, els ajuntaments i la Seguretat Social el 2024, per funcions.</p>
+      <div class="stats">
+        <div class="stat"><div class="n" id="cofogTotal"></div><div class="d">de despesa pública total el 2024</div></div>
+        <div class="stat"><div class="n" id="cofogPer"></div><div class="d">per habitant i any</div></div>
+        <div class="stat"><div class="n" id="cofogPib"></div><div class="d">del PIB</div></div>
+        <div class="stat"><div class="n" id="cofogGrowth"></div><div class="d">de creixement des del 2020</div></div>
+      </div>
+    </div>
+  </header>
+
+  <section class="block">
+    <div class="wrap">
+      <h2>Cerca una partida</h2>
+      <div class="toolbar">
+        <input class="search" type="search" id="cofogSearch" placeholder="Cerca: pensions, hospitals, policia, carreteres, deute..." aria-label="Cerca una partida de despesa">
+        <input type="number" id="cofogGross" min="0" max="300000" step="1000" placeholder="El teu sou brut anual (opcional)" aria-label="El teu sou brut anual" inputmode="numeric">
+      </div>
+      <p class="empty" id="cofogYou"></p>
+      <div class="vs" id="cofogList"></div>
+      <p class="empty" id="cofogEmpty"></p>
+      <p class="caption">Font: <a href="https://www.igae.pap.hacienda.gob.es/sitios/igae/es-ES/Contabilidad/ContabilidadNacional/Publicaciones/Documents/AAPP_A/Funcional%202020-2024.pdf" target="_blank" rel="noopener">IGAE, Classificació funcional de la despesa de les administracions públiques 2020-2024</a> (dades del 2024 provisionals). El repartiment del teu IRPF és il·lustratiu: l'IRPF no està assignat a cap partida concreta, i les pensions es paguen sobretot amb les cotitzacions socials.</p>
+
+      <h3>Està ben gastat?</h3>
+      <div class="grid2">
+        <div class="note"><strong>El que sí que es pot dir amb aquestes dades.</strong> Les dues partides que més han crescut en euros des del 2020 són les pensions (+48.000 M€) i els interessos del deute (+13.700 M€, un 54% més). Juntes sumen un terç de tota la despesa. L'habitatge és l'1%.</div>
+        <div class="note"><strong>El que aquesta web encara no mesura.</strong> Si cada euro dona bon resultat. Qui ho avalua a Espanya és l'<a href="https://www.airef.es" target="_blank" rel="noopener">AIReF</a>, amb revisions de despesa per àrees (subvencions, beneficis fiscals, farmàcia, incentius a la contractació), i el Tribunal de Comptes. Volem afegir-ne les conclusions partida per partida: si hi vols ajudar, <a href="https://github.com/oriollacave/deflactam/issues" target="_blank" rel="noopener">obre una incidència</a>.</div>
+      </div>
+    </div>
+  </section>
+
+  <footer id="footer"></footer>
+  <script src="js/irpf.js"></script>
+  <script src="js/data.js"></script>
+  <script src="js/data2.js"></script>
+  <script src="js/app.js"></script>
+  <script src="js/pages.js"></script>
+</body>
+</html>

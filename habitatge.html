@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="ca">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Habitatge · Deflacta'm</title>
+  <meta name="description" content="Qui són els grans propietaris de pisos de lloguer a Espanya i quant ingressen.">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <nav class="top" id="nav"></nav>
+
+  <header class="hero sm">
+    <div class="wrap">
+      <div class="kicker">Habitatge</div>
+      <h1>Qui són els grans propietaris de pisos de lloguer?</h1>
+      <p class="lead">Entitats amb 50 o més pisos llogats, segons les fiances dipositades a 11 comunitats autònomes (inclosa Catalunya). Són una part petita del mercat total, però concentrada a les ciutats on el lloguer és més tens.</p>
+    </div>
+  </header>
+
+  <section class="block" id="habitatge">
+    <div class="wrap">
+      <div class="grid2">
+        <div class="card">
+          <h3 style="margin-top:0">Els cinc més grans (pisos llogats)</h3>
+          <svg class="chart" id="chartTop" viewBox="0 0 520 260" role="img" aria-label="Grans tenidors"></svg>
+        </div>
+        <div class="card">
+          <h3 style="margin-top:0">303.150 pisos en mans de «megatenidors»</h3>
+          <svg class="chart" id="chartComp" viewBox="0 0 520 260" role="img" aria-label="Composició megatenidors"></svg>
+        </div>
+      </div>
+      <h3>Quant cobren? Fes l'estimació</h3>
+      <div class="card">
+        <label for="rent" style="font-size:14px;color:var(--muted)">Lloguer mitjà mensual dels seus pisos</label>
+        <input type="range" id="rent" min="500" max="1500" step="50" value="900" style="width:100%;accent-color:var(--accent)">
+        <div class="grid2" style="margin-top:12px">
+          <div><div class="slider-out" id="rentOut"></div><div class="caption">l'any, només les empreses i fons privats (178.000 pisos)</div></div>
+          <div><div class="slider-out" id="rentCaixa"></div><div class="caption">l'any, CaixaBank i Blackstone junts (41.600 pisos)</div></div>
+        </div>
+        <p class="caption">Estimació il·lustrativa: pisos × lloguer × 12. No descompta despeses ni impostos.</p>
+      </div>
+      <h3>Context imprescindible</h3>
+      <ul class="facts" id="facts"></ul>
+      <p class="caption">Font principal: <a href="https://www.cronista.com/espana/economia-finanzas/alquileres-en-espana-caixabank-y-blackstone-son-los-fondos-de-inversion-con-mas-viviendas-segun-civio/" target="_blank" rel="noopener">Fundació Civio (2024), via El Cronista</a>.</p>
+    </div>
+  </section>
+
+  <footer id="footer"></footer>
+  <script src="js/irpf.js"></script>
+  <script src="js/data.js"></script>
+  <script src="js/data2.js"></script>
+  <script src="js/app.js"></script>
+  <script src="js/pages.js"></script>
+</body>
+</html>
