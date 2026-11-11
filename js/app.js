@@ -268,6 +268,7 @@
       read = "Amb " + eur(X) + ", el treball ja paga més impostos purs (" + pct(lTax) + ") que el dividend (" + pct(dTax) +
         "), i amb cotitzacions el " + pct(lAll) + ". L'IRPF del treball arriba al 50%; el de l'estalvi s'atura al 30%.";
     }
+    read = "Un sou brut de " + eur(chain.gross) + " li costa a l'empresa " + eur(X) + " amb les cotitzacions. Comparem aquests " + eur(X) + " pels tres camins. " + read;
     read += " Via societat patrimonial: " + pct(hTax) + ", passi el que passi.";
     $("chainRead").textContent = read;
 
@@ -289,7 +290,8 @@
     var n = $("chainX"), r = $("chainXRange");
     function setX(v) {
       v = Math.max(1000, Math.min(1000000, Number(v) || 0));
-      chain.X = v; n.value = v; r.value = Math.min(Math.max(v, 10000), 400000); drawChain();
+      chain.gross = v; chain.X = IRPF.costFromGross(v);
+      n.value = v; r.value = Math.min(Math.max(v, 15000), 300000); drawChain();
     }
     n.addEventListener("input", function () { setX(n.value); });
     r.addEventListener("input", function () { setX(r.value); });
@@ -300,7 +302,7 @@
         drawChain();
       });
     });
-    drawChain();
+    setX(n.value);
   }
 
   // ---------- housing ----------

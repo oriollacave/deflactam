@@ -139,6 +139,9 @@
 
   function savingsTax(amount) { return scaleTax(Math.max(0, amount), SAVINGS_SCALE, 1); }
 
+  /** Cost laboral total per a l'empresa d'un sou brut (sou + cotització empresarial, amb base màxima). */
+  function costFromGross(gross) { return gross + Math.min(gross, SS_MAX_BASE) * EMPLOYER_SS; }
+
   /** X = cost laboral total per a l'empresa (sou + cotització empresarial). */
   function laborChain(X) {
     var gross = X / (1 + EMPLOYER_SS) <= SS_MAX_BASE ? X / (1 + EMPLOYER_SS) : X - SS_MAX_BASE * EMPLOYER_SS;
@@ -179,6 +182,7 @@
     compute: compute,
     savingsTax: savingsTax,
     laborChain: laborChain,
+    costFromGross: costFromGross,
     dividendChain: dividendChain,
     holdingChain: holdingChain,
     EMPLOYER_SS: EMPLOYER_SS,
