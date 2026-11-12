@@ -34,7 +34,8 @@
     ["irpf.html", "IRPF"],
     ["impostos.html", "On van els impostos"],
     ["empreses.html", "Empreses"],
-    ["habitatge.html", "Habitatge"]
+    ["habitatge.html", "Habitatge"],
+    ["lamateixafactura/", "La Mateixa Factura"]
   ];
   function renderNav() {
     var nav = $("nav"); if (!nav) return;

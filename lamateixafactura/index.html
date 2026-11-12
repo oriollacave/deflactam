@@ -1,0 +1,691 @@
+<!doctype html>
+<html lang="ca" data-lang="ca">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="Dades sobre sous, beneficis, immigració, despesa social, eficiència pública i polarització a Espanya i Catalunya, amb propostes transversals.">
+<style>[hidden]{display:none!important}img{max-width:100%}</style>
+<title>La Mateixa Factura</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: one long reading column (≈70ch) with full-bleed chart bands; receipt motif = "everyone pays the same bill" */
+:root{
+  --paper:#F2F3EF; --paper-2:#E7E9E3; --ink:#15171C; --muted:#585E68; --line:#CDD1C9;
+  --signal:#D9531A; --signal-soft:#F6DCCD; --calm:#2F5D62; --calm-soft:#D3E2E1;
+  --display:"Archivo","Arial Narrow",system-ui,sans-serif;
+  --body:"IBM Plex Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,Menlo,Consolas,monospace;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --paper:#121418; --paper-2:#1B1E24; --ink:#E9EAE5; --muted:#A1A7B0; --line:#30343C;
+  --signal:#FF7A3D; --signal-soft:#3A2418; --calm:#7FB5B9; --calm-soft:#1C2E30; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --paper:#121418; --paper-2:#1B1E24; --ink:#E9EAE5; --muted:#A1A7B0; --line:#30343C;
+  --signal:#FF7A3D; --signal-soft:#3A2418; --calm:#7FB5B9; --calm-soft:#1C2E30; color-scheme:dark}
+
+html[data-lang="ca"] .es, html[data-lang="es"] .ca{display:none!important}
+*{box-sizing:border-box}
+body{background:var(--paper);color:var(--ink);font-family:var(--body);font-size:17px;line-height:1.6;margin:0}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--paper)}
+.wrap{max-width:1080px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+.col{max-width:70ch}
+a{color:inherit;text-decoration-color:var(--signal);text-underline-offset:3px}
+a:focus-visible,button:focus-visible{outline:3px solid var(--signal);outline-offset:2px}
+h1,h2,h3{font-family:var(--display);text-wrap:balance;margin:0}
+h1{font-size:clamp(2.6rem,7.5vw,5.4rem);font-weight:800;font-stretch:72%;line-height:.95;letter-spacing:-.01em}
+h2{font-size:clamp(1.9rem,4.6vw,3.1rem);font-weight:800;font-stretch:78%;line-height:1.02}
+h3{font-size:1.25rem;font-weight:700;font-stretch:90%;line-height:1.2}
+p{margin:0}
+.eyebrow{font-family:var(--mono);font-size:.78rem;letter-spacing:.12em;text-transform:uppercase;color:var(--signal);font-weight:500}
+.muted{color:var(--muted)}
+.num{font-variant-numeric:tabular-nums}
+
+/* top bar */
+.bar{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:var(--paper);border-bottom:1px solid var(--line)}
+.bar .wrap{display:flex;align-items:center;gap:16px;padding-block:10px}
+.brand{font-family:var(--display);font-weight:800;font-stretch:75%;font-size:1.15rem;white-space:nowrap}
+.brand b{color:var(--signal)}
+nav.links{display:flex;gap:14px;overflow-x:auto;flex:1;min-width:0;font-size:.85rem;scrollbar-width:none}
+nav.links a{white-space:nowrap;text-decoration:none;color:var(--muted)}
+nav.links a:hover{color:var(--ink)}
+.lang{display:flex;border:1px solid var(--ink);border-radius:999px;overflow:hidden;flex:none}
+.lang button{font:500 .78rem var(--mono);background:transparent;color:var(--ink);border:0;padding:5px 10px;cursor:pointer}
+.lang button[aria-pressed="true"]{background:var(--ink);color:var(--paper)}
+
+/* hero */
+.hero{padding-block:56px 40px;display:grid;grid-template-columns:1.25fr .9fr;gap:48px;align-items:center}
+.hero > *{min-width:0}
+.hero h1 em{font-style:normal;color:var(--signal)}
+.lede{font-size:1.15rem;margin-top:22px;max-width:52ch}
+.receipt{background:var(--paper-2);border:1px solid var(--line);padding:22px 22px 30px;font-family:var(--mono);font-size:.86rem;position:relative;transform:rotate(1.2deg);box-shadow:0 1px 0 var(--line),6px 8px 0 -2px var(--line);border-top:4px solid var(--ink)}
+.receipt .hd{text-align:center;border-bottom:1px dashed var(--muted);padding-bottom:10px;margin-bottom:10px;letter-spacing:.08em}
+.receipt .row{display:flex;justify-content:space-between;gap:12px;padding:3px 0}
+.receipt .up{color:var(--signal);font-weight:500}
+.receipt .tot{border-top:1px dashed var(--muted);margin-top:10px;padding-top:10px;font-weight:500}
+.receipt .who{display:flex;justify-content:space-between;margin-top:14px;font-size:.75rem;color:var(--muted)}
+
+.stats{display:grid;grid-template-columns:repeat(4,1fr);border-block:1px solid var(--ink);margin-bottom:24px}
+.stat{padding:18px 16px 18px 0;min-width:0}
+.stat + .stat{border-left:1px solid var(--line);padding-left:16px}
+.stat .big{font-family:var(--display);font-weight:800;font-stretch:75%;font-size:2.3rem;line-height:1}
+.stat .lbl{font-size:.85rem;color:var(--muted);margin-top:6px;line-height:1.35}
+
+/* sections */
+section.topic{padding-block:64px;border-top:1px solid var(--line)}
+section.topic:nth-of-type(even){background:var(--paper-2)}
+.topic-head{display:grid;gap:12px;margin-bottom:28px}
+.q{font-family:var(--display);font-stretch:85%;font-weight:600;font-size:1.2rem;color:var(--muted)}
+.body{display:grid;gap:16px}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:start}
+.grid2 > *{min-width:0}
+
+/* verdict pill */
+.verdict{display:inline-flex;gap:10px;align-items:baseline;border:1.5px solid var(--ink);border-radius:4px;padding:6px 12px;font-size:.95rem;font-weight:600;align-self:start;justify-self:start}
+.verdict .k{font-family:var(--mono);font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:var(--signal)}
+
+/* bar charts */
+figure{margin:0}
+.chart{display:grid;gap:12px}
+.chart figcaption{font-family:var(--display);font-weight:700;font-stretch:90%;font-size:1.05rem}
+.brow{display:grid;grid-template-columns:minmax(110px,34%) 1fr;gap:12px;align-items:center}
+.brow .lab{font-size:.88rem;line-height:1.25}
+.track{position:relative;height:30px;background:transparent;border-left:1.5px solid var(--ink)}
+.fill{height:100%;background:var(--calm);display:flex;align-items:center;justify-content:flex-end;padding-right:8px;font:500 .82rem var(--mono);color:var(--paper);min-width:max-content}
+.fill.hot{background:var(--signal)}
+.fill.ghost{background:var(--line);color:var(--ink)}
+.fill.out{background:transparent;padding:0}
+.fill.out + .v, .vout{position:absolute;top:50%;transform:translateY(-50%);font:500 .82rem var(--mono)}
+.src{font-size:.78rem;color:var(--muted);line-height:1.4}
+.src a{color:var(--muted)}
+.note{font-size:.9rem;border-left:3px solid var(--signal);padding:4px 0 4px 14px;color:var(--ink)}
+.callout{background:var(--signal-soft);padding:18px 20px;border-radius:2px}
+.callout.calm{background:var(--calm-soft)}
+
+/* compare pair */
+.pair{display:grid;grid-template-columns:1fr 1fr;gap:0;border:1px solid var(--ink)}
+.pair > div{padding:18px;min-width:0}
+.pair > div + div{border-left:1px solid var(--ink)}
+.pair .big{font-family:var(--display);font-weight:800;font-stretch:75%;font-size:2.6rem;line-height:1}
+
+/* waffle */
+.waffle{display:grid;grid-template-columns:repeat(20,1fr);gap:3px;max-width:420px}
+.waffle i{aspect-ratio:1;background:var(--line);border-radius:1px}
+.waffle i.on{background:var(--calm)}
+.waffle i.per{background:var(--signal)}
+
+/* axes diagram */
+.axes{width:100%;max-width:520px;height:auto}
+.axes text{font-family:var(--mono);font-size:12px;fill:var(--ink)}
+.axes .m{fill:var(--muted)}
+
+/* proposals */
+.props{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}
+.prop{border:1px solid var(--ink);background:var(--paper);padding:20px;display:grid;gap:12px;align-content:start;min-width:0}
+.prop .tag{font-family:var(--mono);font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.prop ul{margin:0;padding-left:18px;font-size:.93rem;display:grid;gap:4px}
+.why{display:grid;grid-template-columns:1fr 1fr;gap:10px;font-size:.84rem}
+.why > div{background:var(--paper-2);padding:10px;min-width:0}
+.why b{display:block;font-family:var(--mono);font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);font-weight:500;margin-bottom:2px}
+
+/* quiz */
+.quiz{display:grid;gap:14px}
+.qcard{border:1px solid var(--line);background:var(--paper);padding:18px;display:grid;gap:12px}
+.qcard .stmt{font-weight:600;font-size:1.05rem}
+.qbtns{display:flex;gap:8px;flex-wrap:wrap}
+.qbtns button{font:500 .85rem var(--body);border:1.5px solid var(--ink);background:transparent;color:var(--ink);padding:7px 14px;border-radius:999px;cursor:pointer}
+.qbtns button:hover{background:var(--ink);color:var(--paper)}
+.qans{font-size:.93rem;border-left:3px solid var(--calm);padding-left:12px}
+.qans .res{font-family:var(--mono);font-size:.75rem;letter-spacing:.08em;text-transform:uppercase}
+.qans .ok{color:var(--calm)} .qans .ko{color:var(--signal)}
+
+/* steps */
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;counter-reset:s}
+.step{border-top:3px solid var(--ink);padding-top:12px;display:grid;gap:6px;min-width:0}
+.step::before{counter-increment:s;content:counter(s,decimal-leading-zero);font:500 .8rem var(--mono);color:var(--signal)}
+.step p{font-size:.93rem}
+
+.sources{font-size:.85rem;columns:2;column-gap:40px}
+.sources li{break-inside:avoid;margin-bottom:6px}
+footer{padding-block:40px 60px;border-top:1px solid var(--ink)}
+
+@media (max-width:860px){
+  .hero{grid-template-columns:1fr;gap:32px;padding-block:36px 28px}
+  .receipt{max-width:380px}
+  .stats{grid-template-columns:1fr 1fr}
+  .stat:nth-child(3){border-left:0;padding-left:0}
+  .stat:nth-child(n+3){border-top:1px solid var(--line)}
+  .grid2,.props,.steps{grid-template-columns:1fr}
+  .sources{columns:1}
+}
+@media (max-width:520px){
+  .brow{grid-template-columns:1fr;gap:4px}
+  .why{grid-template-columns:1fr}
+  .pair{grid-template-columns:1fr}
+  .pair > div + div{border-left:0;border-top:1px solid var(--ink)}
+  nav.links{display:none}
+}
+@media (prefers-reduced-motion:no-preference){
+  .fill{transform-origin:left;animation:grow .9s cubic-bezier(.2,.7,.2,1) both}
+  @keyframes grow{from{transform:scaleX(.08)}to{transform:scaleX(1)}}
+}
+</style>
+</head>
+<body>
+
+<header class="bar">
+  <div class="wrap">
+    <div class="brand">La <b>Mateixa</b> Factura</div>
+    <nav class="links" aria-label="Seccions">
+      <a href="#sous"><span class="ca">Sous</span><span class="es">Sueldos</span></a>
+      <a href="#beneficis"><span class="ca">Qui guanya</span><span class="es">Quién gana</span></a>
+      <a href="#feina"><span class="ca">Feina i immigració</span><span class="es">Empleo e inmigración</span></a>
+      <a href="#despesa"><span class="ca">Despesa social</span><span class="es">Gasto social</span></a>
+      <a href="#fuites"><span class="ca">Fuites</span><span class="es">Fugas</span></a>
+      <a href="#infra"><span class="ca">Infraestructures</span><span class="es">Infraestructuras</span></a>
+      <a href="#divisio"><span class="ca">Divisió</span><span class="es">División</span></a>
+      <a href="#propostes"><span class="ca">Propostes</span><span class="es">Propuestas</span></a>
+    </nav>
+    <div class="lang" role="group" aria-label="Idioma">
+      <button type="button" id="b-ca" data-l="ca" aria-pressed="true">CA</button>
+      <button type="button" id="b-es" data-l="es" aria-pressed="false">ES</button>
+    </div>
+  </div>
+</header>
+
+<main>
+<div class="wrap">
+  <div class="hero">
+    <div>
+      <p class="eyebrow"><span class="ca">Espanya i Catalunya · dades 2019–2026</span><span class="es">España y Cataluña · datos 2019–2026</span></p>
+      <h1 style="margin-top:14px"><span class="ca">Votis el que votis, pagues <em>la mateixa factura.</em></span><span class="es">Votes lo que votes, pagas <em>la misma factura.</em></span></h1>
+      <p class="lede"><span class="ca">Lloguer, llum, cistella i sou: els problemes que t'afecten no pregunten a qui votes. Aquí tens les dades de les qüestions que més ens enfronten, separant el que és cert del que és soroll, i un paquet de propostes que poden signar persones d'esquerres i de dretes.</span><span class="es">Alquiler, luz, cesta y sueldo: los problemas que te afectan no preguntan a quién votas. Aquí tienes los datos de las cuestiones que más nos enfrentan, separando lo cierto del ruido, y un paquete de propuestas que pueden firmar personas de izquierdas y de derechas.</span></p>
+    </div>
+    <div class="receipt" aria-label="Factura il·lustrativa">
+      <div class="hd"><span class="ca">FACTURA DE LA LLAR · 2019 → 2025</span><span class="es">FACTURA DEL HOGAR · 2019 → 2025</span></div>
+      <div class="row"><span class="ca">Habitatge nou</span><span class="es">Vivienda nueva</span><span class="up num">+63,7%</span></div>
+      <div class="row"><span class="ca">Habitatge de segona mà</span><span class="es">Vivienda de segunda mano</span><span class="up num">+46,4%</span></div>
+      <div class="row"><span class="ca">Preus en general (IPC)</span><span class="es">Precios en general (IPC)</span><span class="up num">+21,8%</span></div>
+      <div class="row"><span class="ca">Sou brut mitjà</span><span class="es">Sueldo bruto medio</span><span class="num">+21,2%</span></div>
+      <div class="row tot"><span class="ca">Guany real del sou</span><span class="es">Ganancia real del sueldo</span><span class="num">≈ 0%</span></div>
+      <div class="who"><span class="ca">Esquerra: paga</span><span class="es">Izquierda: paga</span><span class="ca">Dreta: paga</span><span class="es">Derecha: paga</span></div>
+    </div>
+  </div>
+
+  <div class="stats">
+    <div class="stat"><div class="big num">50%</div><div class="lbl"><span class="ca">del sou mitjà se'n va al lloguer (38% el 2019)</span><span class="es">del sueldo medio se va al alquiler (38% en 2019)</span></div></div>
+    <div class="stat"><div class="big num">750.000</div><div class="lbl"><span class="ca">habitatges que falten (Banc d'Espanya)</span><span class="es">viviendas que faltan (Banco de España)</span></div></div>
+    <div class="stat"><div class="big num">48.000 M€</div><div class="lbl"><span class="ca">sobrecost anual per manca de competència en contractes públics (CNMC)</span><span class="es">sobrecoste anual por falta de competencia en contratos públicos (CNMC)</span></div></div>
+    <div class="stat"><div class="big num">65%</div><div class="lbl"><span class="ca">creu que el país està dividit (More in Common)</span><span class="es">cree que el país está dividido (More in Common)</span></div></div>
+  </div>
+</div>
+
+<!-- SOUS -->
+<section class="topic" id="sous">
+  <div class="wrap">
+    <div class="topic-head col">
+      <p class="eyebrow"><span class="ca">Sous i inflació</span><span class="es">Sueldos e inflación</span></p>
+      <h2><span class="ca">El sou puja, però no arriba.</span><span class="es">El sueldo sube, pero no llega.</span></h2>
+      <p class="q"><span class="ca">Per què cobro més que el 2019 i visc pitjor?</span><span class="es">¿Por qué cobro más que en 2019 y vivo peor?</span></p>
+    </div>
+    <div class="grid2">
+      <div class="body">
+        <p><span class="ca">Entre 2019 i 2025 el sou brut mitjà va passar de 23.450 € a 28.411 € (+21,2%). Però els preus van pujar un 21,8%. Resultat: en termes reals, el treballador mitjà està pràcticament igual que abans de la pandèmia. L'OCDE situava Espanya entre els països on més poder adquisitiu es va perdre.</span><span class="es">Entre 2019 y 2025 el sueldo bruto medio pasó de 23.450 € a 28.411 € (+21,2%). Pero los precios subieron un 21,8%. Resultado: en términos reales, el trabajador medio está prácticamente igual que antes de la pandemia. La OCDE situaba a España entre los países donde más poder adquisitivo se perdió.</span></p>
+        <p><span class="ca">El problema gros no és la cistella, és el sostre. L'habitatge nou s'ha encarit tres vegades més que el sou, i qui viu de lloguer ja hi destina la meitat del salari.</span><span class="es">El problema gordo no es la cesta, es el techo. La vivienda nueva se ha encarecido tres veces más que el sueldo, y quien vive de alquiler ya destina la mitad del salario.</span></p>
+        <p class="note"><span class="ca">Detall poc conegut: com que els trams de l'IRPF no s'actualitzen amb la inflació, en pujar el sou nominal pagues un tipus més alt sense ser més ric. L'OCDE calcula que el 2025 el sou real va pujar un 1,2%, però el tipus mitjà d'impostos un 1,5%.</span><span class="es">Detalle poco conocido: como los tramos del IRPF no se actualizan con la inflación, al subir el sueldo nominal pagas un tipo más alto sin ser más rico. La OCDE calcula que en 2025 el sueldo real subió un 1,2%, pero el tipo medio de impuestos un 1,5%.</span></p>
+        <p class="note"><b>Catalunya:</b> <span class="ca">lloguer mitjà de 884 €/mes a Catalunya i 1.161 € a Barcelona (4t trimestre 2025, Incasòl).</span><span class="es">alquiler medio de 884 €/mes en Cataluña y 1.161 € en Barcelona (4º trimestre 2025, Incasòl).</span></p>
+      </div>
+      <figure class="chart">
+        <figcaption><span class="ca">Quant ha pujat cada cosa, 2019 → 2025</span><span class="es">Cuánto ha subido cada cosa, 2019 → 2025</span></figcaption>
+        <div class="brow"><span class="lab"><span class="ca">Habitatge nou</span><span class="es">Vivienda nueva</span></span><div class="track"><div class="fill hot" style="width:91%">+63,7%</div></div></div>
+        <div class="brow"><span class="lab"><span class="ca">Habitatge 2a mà</span><span class="es">Vivienda 2ª mano</span></span><div class="track"><div class="fill hot" style="width:66.3%">+46,4%</div></div></div>
+        <div class="brow"><span class="lab"><span class="ca">Preus (IPC)</span><span class="es">Precios (IPC)</span></span><div class="track"><div class="fill ghost" style="width:31.1%">+21,8%</div></div></div>
+        <div class="brow"><span class="lab"><span class="ca">Sou brut mitjà</span><span class="es">Sueldo bruto medio</span></span><div class="track"><div class="fill" style="width:30.3%">+21,2%</div></div></div>
+        <p class="src"><span class="ca">Escala 0–70%. Fonts: INE (Enquesta Anual de Cost Laboral, Índex de Preus d'Habitatge, IPC), recollit per El Independiente (abr. 2026).</span><span class="es">Escala 0–70%. Fuentes: INE (Encuesta Anual de Coste Laboral, Índice de Precios de Vivienda, IPC), recogido por El Independiente (abr. 2026).</span></p>
+        <div class="pair" style="margin-top:14px">
+          <div><div class="big num">38%</div><div class="src"><span class="ca">del sou al lloguer, 2019</span><span class="es">del sueldo al alquiler, 2019</span></div></div>
+          <div><div class="big num" style="color:var(--signal)">50%</div><div class="src"><span class="ca">del sou al lloguer, 2025</span><span class="es">del sueldo al alquiler, 2025</span></div></div>
+        </div>
+        <p class="src">Fotocasa / InfoJobs.</p>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- BENEFICIS -->
+<section class="topic" id="beneficis">
+  <div class="wrap">
+    <div class="topic-head col">
+      <p class="eyebrow"><span class="ca">Beneficis empresarials</span><span class="es">Beneficios empresariales</span></p>
+      <h2><span class="ca">No guanyen "les empreses". Guanyen les que no tenen competència.</span><span class="es">No ganan "las empresas". Ganan las que no tienen competencia.</span></h2>
+      <p class="q"><span class="ca">Quin tipus d'empresa ha guanyat més amb la crisi de preus?</span><span class="es">¿Qué tipo de empresa ha ganado más con la crisis de precios?</span></p>
+    </div>
+    <div class="grid2">
+      <div class="body">
+        <p><span class="ca">La majoria d'empreses, sobretot petites, van patir l'alça de costos: el Banc d'Espanya va constatar que els sectors que més depenen de l'energia van veure caure els marges. Els que van guanyar tenen un patró comú: <b>pocs actors, clients captius i productes que no pots deixar de comprar</b>.</span><span class="es">La mayoría de empresas, sobre todo pequeñas, sufrieron el alza de costes: el Banco de España constató que los sectores que más dependen de la energía vieron caer sus márgenes. Los que ganaron tienen un patrón común: <b>pocos actores, clientes cautivos y productos que no puedes dejar de comprar</b>.</span></p>
+        <ul style="margin:0;padding-left:20px;display:grid;gap:6px">
+          <li><b><span class="ca">Energia:</span><span class="es">Energía:</span></b> <span class="ca">el 2022 generació elèctrica i refinatge van ser dels pocs sectors que van ampliar marges; el 2023 eren l'única excepció que no havia tornat a nivells prepandèmia (Banc d'Espanya).</span><span class="es">en 2022 generación eléctrica y refino fueron de los pocos sectores que ampliaron márgenes; en 2023 eran la única excepción que no había vuelto a niveles prepandemia (Banco de España).</span></li>
+          <li><b><span class="ca">Banca:</span><span class="es">Banca:</span></b> <span class="ca">la pujada de tipus d'interès va disparar el marge. Tercer any seguit de rècord: ~34.000 M€ de benefici el 2025.</span><span class="es">la subida de tipos de interés disparó el margen. Tercer año seguido de récord: ~34.000 M€ de beneficio en 2025.</span></li>
+          <li><b><span class="ca">Propietaris de molts habitatges:</span><span class="es">Propietarios de muchas viviendas:</span></b> <span class="ca">quan falta oferta, qui ja té l'actiu cobra la renda de l'escassetat.</span><span class="es">cuando falta oferta, quien ya tiene el activo cobra la renta de la escasez.</span></li>
+        </ul>
+        <p class="callout"><span class="ca">I tributen menys: les pimes paguen un tipus efectiu de l'Impost de Societats de més del doble que els grans grups i multinacionals. Això no és "esquerra contra empresa": el petit empresari és el primer perjudicat.</span><span class="es">Y tributan menos: las pymes pagan un tipo efectivo del Impuesto de Sociedades de más del doble que los grandes grupos y multinacionales. Esto no es "izquierda contra empresa": el pequeño empresario es el primer perjudicado.</span></p>
+      </div>
+      <div class="body">
+        <figure class="chart">
+          <figcaption><span class="ca">Benefici net 2025, grans bancs (milions €)</span><span class="es">Beneficio neto 2025, grandes bancos (millones €)</span></figcaption>
+          <div class="brow"><span class="lab">Santander</span><div class="track"><div class="fill" style="width:94%">14.101</div></div></div>
+          <div class="brow"><span class="lab">BBVA</span><div class="track"><div class="fill" style="width:70.1%">10.511</div></div></div>
+          <div class="brow"><span class="lab">CaixaBank</span><div class="track"><div class="fill" style="width:39.3%">5.891</div></div></div>
+          <div class="brow"><span class="lab">Sabadell</span><div class="track"><div class="fill" style="width:11.8%">1.775</div></div></div>
+          <p class="src"><span class="ca">Escala 0–15.000 M€. Inclou negoci internacional. Font: resultats anuals, via Diario de León / Portafolio (feb. 2026).</span><span class="es">Escala 0–15.000 M€. Incluye negocio internacional. Fuente: resultados anuales, vía Diario de León / Portafolio (feb. 2026).</span></p>
+        </figure>
+        <figure class="chart">
+          <figcaption><span class="ca">Tipus efectiu de l'Impost de Societats</span><span class="es">Tipo efectivo del Impuesto de Sociedades</span></figcaption>
+          <div class="brow"><span class="lab"><span class="ca">Tipus legal</span><span class="es">Tipo legal</span></span><div class="track"><div class="fill ghost" style="width:83.3%">25%</div></div></div>
+          <div class="brow"><span class="lab">Pimes</span><div class="track"><div class="fill" style="width:60%">18%</div></div></div>
+          <div class="brow"><span class="lab"><span class="ca">Grans grups i multinacionals</span><span class="es">Grandes grupos y multinacionales</span></span><div class="track"><div class="fill hot" style="width:24%">7,2%</div></div></div>
+          <p class="src"><span class="ca">Escala 0–30%. Dades 2022 (comptes consolidats), Agència Tributària, via Diari de Tarragona. Altres mètodes donen ~17% per a grans empreses; la bretxa persisteix.</span><span class="es">Escala 0–30%. Datos 2022 (cuentas consolidadas), Agencia Tributaria, vía Diari de Tarragona. Otros métodos dan ~17% para grandes empresas; la brecha persiste.</span></p>
+        </figure>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FEINA -->
+<section class="topic" id="feina">
+  <div class="wrap">
+    <div class="topic-head col">
+      <p class="eyebrow"><span class="ca">Feina i immigració</span><span class="es">Empleo e inmigración</span></p>
+      <h2><span class="ca">Ens prenen la feina els immigrants?</span><span class="es">¿Nos quitan el trabajo los inmigrantes?</span></h2>
+      <p class="q"><span class="ca">Resposta curta: en conjunt, no. Resposta llarga: hi ha efectes locals que convé no amagar.</span><span class="es">Respuesta corta: en conjunto, no. Respuesta larga: hay efectos locales que conviene no esconder.</span></p>
+    </div>
+    <div class="grid2">
+      <div class="body">
+        <div class="verdict"><span class="k"><span class="ca">Veredicte</span><span class="es">Veredicto</span></span><span class="ca">Majoritàriament fals</span><span class="es">Mayoritariamente falso</span></div>
+        <p><span class="ca">El Banc d'Espanya calcula que la població immigrant explica prop de la meitat del creixement del PIB 2022–2025 i dos terços de l'ocupació creada, <b>sense reduir les oportunitats laborals dels nadius</b>. L'atur no ha pujat amb la immigració: ha baixat.</span><span class="es">El Banco de España calcula que la población inmigrante explica cerca de la mitad del crecimiento del PIB 2022–2025 y dos tercios del empleo creado, <b>sin reducir las oportunidades laborales de los nativos</b>. El paro no ha subido con la inmigración: ha bajado.</span></p>
+        <p><span class="ca">Però Fedea recull que sí hi ha <b>pressió a la baixa sobre els sous dels treballadors poc qualificats</b> que competeixen directament en els mateixos llocs. I més població sense més habitatge empeny el lloguer amunt. Les dues coses són certes alhora.</span><span class="es">Pero Fedea recoge que sí hay <b>presión a la baja sobre los sueldos de los trabajadores poco cualificados</b> que compiten directamente en los mismos puestos. Y más población sin más vivienda empuja el alquiler hacia arriba. Las dos cosas son ciertas a la vez.</span></p>
+        <p class="callout calm"><span class="ca">La pregunta útil no és "immigrants sí o no", sinó <b>qui es beneficia de mà d'obra barata i sense drets</b>. Un treballador sense papers que cobra en negre abaixa el sou de tothom. Perseguir l'empresari que explota (no el treballador) protegeix alhora el nadiu i l'immigrant.</span><span class="es">La pregunta útil no es "inmigrantes sí o no", sino <b>quién se beneficia de mano de obra barata y sin derechos</b>. Un trabajador sin papeles que cobra en negro baja el sueldo de todos. Perseguir al empresario que explota (no al trabajador) protege a la vez al nativo y al inmigrante.</span></p>
+      </div>
+      <div class="body">
+        <figure class="chart">
+          <figcaption><span class="ca">Quants immigrants creiem que hi ha vs. quants n'hi ha</span><span class="es">Cuántos inmigrantes creemos que hay vs. cuántos hay</span></figcaption>
+          <div class="brow"><span class="lab"><span class="ca">Percepció</span><span class="es">Percepción</span></span><div class="track"><div class="fill hot" style="width:92.7%">27,8%</div></div></div>
+          <div class="brow"><span class="lab"><span class="ca">Realitat</span><span class="es">Realidad</span></span><div class="track"><div class="fill" style="width:53.3%">16%</div></div></div>
+          <p class="src"><span class="ca">Escala 0–30% de la població. Enquesta a 3.200 persones (Fedea/UC3M, 2024). El mateix estudi troba que sobreestimem per 4 els immigrants que reben ajudes.</span><span class="es">Escala 0–30% de la población. Encuesta a 3.200 personas (Fedea/UC3M, 2024). El mismo estudio encuentra que sobreestimamos por 4 los inmigrantes que reciben ayudas.</span></p>
+        </figure>
+        <figure class="chart">
+          <figcaption><span class="ca">Cotitzants a la Seguretat Social, 2025 (cada quadre = 0,5%)</span><span class="es">Cotizantes a la Seguridad Social, 2025 (cada cuadro = 0,5%)</span></figcaption>
+          <div class="waffle" id="waffle" aria-label="14,1% estrangers"></div>
+          <p class="src"><span class="ca">Taronja: 3,09 milions d'estrangers = 14,1% dels cotitzants. Font: Ministeri d'Inclusió (gen. 2026).</span><span class="es">Naranja: 3,09 millones de extranjeros = 14,1% de los cotizantes. Fuente: Ministerio de Inclusión (ene. 2026).</span></p>
+        </figure>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DESPESA -->
+<section class="topic" id="despesa">
+  <div class="wrap">
+    <div class="topic-head col">
+      <p class="eyebrow"><span class="ca">Despesa social</span><span class="es">Gasto social</span></p>
+      <h2><span class="ca">On van de debò els diners socials?</span><span class="es">¿Adónde va de verdad el dinero social?</span></h2>
+      <p class="q"><span class="ca">Spoiler: sobretot a pensions i sanitat. És a dir, a la gent gran del país.</span><span class="es">Spoiler: sobre todo a pensiones y sanidad. Es decir, a la gente mayor del país.</span></p>
+    </div>
+    <div class="grid2">
+      <figure class="chart">
+        <figcaption><span class="ca">Grans partides, % del PIB (2025, aprox.)</span><span class="es">Grandes partidas, % del PIB (2025, aprox.)</span></figcaption>
+        <div class="brow"><span class="lab"><span class="ca">Pensions</span><span class="es">Pensiones</span></span><div class="track"><div class="fill" style="width:92.1%">12,9%</div></div></div>
+        <div class="brow"><span class="lab"><span class="ca">Sanitat</span><span class="es">Sanidad</span></span><div class="track"><div class="fill" style="width:49.3%">≈6,9%</div></div></div>
+        <div class="brow"><span class="lab"><span class="ca">Educació</span><span class="es">Educación</span></span><div class="track"><div class="fill" style="width:29.3%">≈4,1%</div></div></div>
+        <div class="brow"><span class="lab"><span class="ca">Atur</span><span class="es">Desempleo</span></span><div class="track"><div class="fill ghost" style="width:9.3%">≈1,3%</div></div></div>
+        <div class="brow"><span class="lab"><span class="ca">Habitatge (Estat)</span><span class="es">Vivienda (Estado)</span></span><div class="track" style="display:flex;align-items:center"><div class="fill hot" style="width:1.4%;padding:0"></div><span style="font:500 .82rem var(--mono);margin-left:8px">0,2% <span class="muted">(UE 0,8%)</span></span></div></div>
+        <p class="src"><span class="ca">Escala 0–14% del PIB. Pensions: Instituto Santalucía (218.321 M€). Sanitat: The Objective / IGAE. Educació i atur: ordre de magnitud segons Eurostat COFOG. Habitatge: Maldita.es amb dades UE 2023.</span><span class="es">Escala 0–14% del PIB. Pensiones: Instituto Santalucía (218.321 M€). Sanidad: The Objective / IGAE. Educación y desempleo: orden de magnitud según Eurostat COFOG. Vivienda: Maldita.es con datos UE 2023.</span></p>
+      </figure>
+      <div class="body">
+        <div class="verdict"><span class="k"><span class="ca">"Se'ls ho emporten els immigrants"</span><span class="es">"Se lo llevan los inmigrantes"</span></span><span class="ca">Fals</span><span class="es">Falso</span></div>
+        <p><span class="ca">Les pensions (la meitat llarga de la despesa social) les cobren sobretot persones jubilades que van cotitzar aquí durant dècades. La població immigrant és, de mitjana, molt més jove: cotitza ara i fa poc ús de pensions i sanitat geriàtrica.</span><span class="es">Las pensiones (la mitad larga del gasto social) las cobran sobre todo personas jubiladas que cotizaron aquí durante décadas. La población inmigrante es, de media, mucho más joven: cotiza ahora y hace poco uso de pensiones y sanidad geriátrica.</span></p>
+        <p><span class="ca">L'OCDE calcula que el saldo fiscal net dels immigrants a Espanya (2006–2018) és pràcticament zero: −0,15% del PIB, positiu en anys bons i negatiu en crisi. La clau no és quants n'arriben, sinó <b>quants treballen i amb quin sou</b>. Think tanks crítics (Fundación Disenso) calculen saldos més negatius per a sous baixos: per això la integració laboral i salaris dignes importen a tothom.</span><span class="es">La OCDE calcula que el saldo fiscal neto de los inmigrantes en España (2006–2018) es prácticamente cero: −0,15% del PIB, positivo en años buenos y negativo en crisis. La clave no es cuántos llegan, sino <b>cuántos trabajan y con qué sueldo</b>. Think tanks críticos (Fundación Disenso) calculan saldos más negativos para sueldos bajos: por eso la integración laboral y salarios dignos importan a todos.</span></p>
+        <p class="note"><span class="ca">El forat real: el 2025 l'Estat va haver d'aportar 56.946 M€ per cobrir la part contributiva de les pensions. I gairebé no gastem en habitatge, que és el problema número u.</span><span class="es">El agujero real: en 2025 el Estado tuvo que aportar 56.946 M€ para cubrir la parte contributiva de las pensiones. Y casi no gastamos en vivienda, que es el problema número uno.</span></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FUITES -->
+<section class="topic" id="fuites">
+  <div class="wrap">
+    <div class="topic-head col">
+      <p class="eyebrow"><span class="ca">Eficiència pública</span><span class="es">Eficiencia pública</span></p>
+      <h2><span class="ca">El problema no és quant gastem. És per on s'escola.</span><span class="es">El problema no es cuánto gastamos. Es por dónde se escapa.</span></h2>
+      <p class="q"><span class="ca">Sobren funcionaris? Cobren massa els polítics? On és el malbaratament de veritat?</span><span class="es">¿Sobran funcionarios? ¿Cobran demasiado los políticos? ¿Dónde está el despilfarro de verdad?</span></p>
+    </div>
+    <div class="grid2">
+      <figure class="chart">
+        <figcaption><span class="ca">Fuites estimades cada any (milers de milions €)</span><span class="es">Fugas estimadas cada año (miles de millones €)</span></figcaption>
+        <div class="brow"><span class="lab"><span class="ca">Frau fiscal (estimació sindical)</span><span class="es">Fraude fiscal (estimación sindical)</span></span><div class="track"><div class="fill hot" style="width:90%">≈90</div></div></div>
+        <div class="brow"><span class="lab"><span class="ca">Sobrecost en contractes públics</span><span class="es">Sobrecoste en contratos públicos</span></span><div class="track"><div class="fill hot" style="width:48%">48</div></div></div>
+        <div class="brow"><span class="lab"><span class="ca">Subvencions sense avaluar resultats</span><span class="es">Subvenciones sin evaluar resultados</span></span><div class="track"><div class="fill ghost" style="width:14%">14</div></div></div>
+        <div class="brow"><span class="lab"><span class="ca">Comparació: despesa estatal en habitatge</span><span class="es">Comparación: gasto estatal en vivienda</span></span><div class="track"><div class="fill" style="width:3.4%;padding:0"></div><span class="vout" style="left:calc(3.4% + 8px)">≈3,4</span></div></div>
+        <p class="src"><span class="ca">Escala 0–100. Frau: Gestha (sindicat de tècnics d'Hisenda; xifra no oficial). Contractes: CNMC. Subvencions: AIReF, Spending Review fase I (no és tot malbaratament: és despesa que ningú comprova si funciona). Habitatge: 0,2% del PIB.</span><span class="es">Escala 0–100. Fraude: Gestha (sindicato de técnicos de Hacienda; cifra no oficial). Contratos: CNMC. Subvenciones: AIReF, Spending Review fase I (no es todo despilfarro: es gasto que nadie comprueba si funciona). Vivienda: 0,2% del PIB.</span></p>
+      </figure>
+      <div class="body">
+        <p><span class="ca"><b>Funcionaris:</b> hi ha uns 3,5 milions d'ocupats públics davant 18,7 milions al sector privat. El 59% treballen per a les comunitats autònomes, és a dir, sobretot metges, infermeres i mestres. Retallar a l'engròs no arregla res; el que falla és com s'assigna: llistes d'espera de 853.509 pacients i 121 dies de mitjana per operar-se (un 21,6% espera més de 6 mesos).</span><span class="es"><b>Funcionarios:</b> hay unos 3,5 millones de empleados públicos frente a 18,7 millones en el sector privado. El 59% trabaja para las comunidades autónomas, es decir, sobre todo médicos, enfermeras y maestros. Recortar a lo bruto no arregla nada; lo que falla es cómo se asigna: listas de espera de 853.509 pacientes y 121 días de media para operarse (un 21,6% espera más de 6 meses).</span></p>
+        <p><span class="ca"><b>Polítics:</b> el sou dels càrrecs electes és una part petita del pressupost. El cost car és un altre: <b>portes giratòries</b> (tres expresidents del Govern van acabar vinculats a elèctriques; Enagás ha arribat a tenir nou expolítics al consell) i contractes adjudicats sense competència real. La CNMC calcula que els procediments oberts estalvien gairebé un 10%.</span><span class="es"><b>Políticos:</b> el sueldo de los cargos electos es una parte pequeña del presupuesto. El coste caro es otro: <b>puertas giratorias</b> (tres expresidentes del Gobierno acabaron vinculados a eléctricas; Enagás ha llegado a tener nueve expolíticos en su consejo) y contratos adjudicados sin competencia real. La CNMC calcula que los procedimientos abiertos ahorran casi un 10%.</span></p>
+        <p class="callout"><span class="ca">Segons l'AIReF, a Espanya hi ha "una escassíssima avaluació de resultats de la despesa pública". Es controla si es gasta legalment, no si serveix.</span><span class="es">Según la AIReF, en España hay "una escasísima evaluación de resultados del gasto público". Se controla si se gasta legalmente, no si sirve.</span></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- INFRA -->
+<section class="topic" id="infra">
+  <div class="wrap">
+    <div class="topic-head col">
+      <p class="eyebrow"><span class="ca">Infraestructures</span><span class="es">Infraestructuras</span></p>
+      <h2><span class="ca">Allò que falta construir.</span><span class="es">Lo que falta construir.</span></h2>
+    </div>
+    <div class="grid2">
+      <div class="body">
+        <h3><span class="ca">1. Habitatge, sobretot de lloguer assequible</span><span class="es">1. Vivienda, sobre todo de alquiler asequible</span></h3>
+        <p><span class="ca">El Banc d'Espanya xifra el dèficit acumulat 2021–2025 en 750.000 habitatges i avisa que empitjorarà. CaixaBank Research atribueix a aquest dèficit un 39% de la pujada de preus. I el parc d'habitatge social és mínim comparat amb Europa.</span><span class="es">El Banco de España cifra el déficit acumulado 2021–2025 en 750.000 viviendas y avisa de que empeorará. CaixaBank Research atribuye a este déficit un 39% de la subida de precios. Y el parque de vivienda social es mínimo comparado con Europa.</span></p>
+        <h3><span class="ca">2. Xarxa elèctrica</span><span class="es">2. Red eléctrica</span></h3>
+        <p><span class="ca">L'apagada del 28 d'abril de 2025 va treure a la llum una xarxa que no ha crescut al ritme de les renovables. Redeia preveu 13.100 M€ i el Govern ha ampliat un 62% el límit d'inversió fins al 2030. Hi ha municipis on ja no es pot connectar més capacitat.</span><span class="es">El apagón del 28 de abril de 2025 sacó a la luz una red que no ha crecido al ritmo de las renovables. Redeia prevé 13.100 M€ y el Gobierno ha ampliado un 62% el límite de inversión hasta 2030. Hay municipios donde ya no se puede conectar más capacidad.</span></p>
+        <h3><span class="ca">3. Tren de proximitat</span><span class="es">3. Tren de cercanías</span></h3>
+        <p><span class="ca"><b>Catalunya:</b> el Pla de Rodalies 2020–2030 preveia 6.345 M€; la Cambra de Barcelona en comptava 2.666 M€ executats i demana 1.000 M€/any fins al 2030. El Govern català xifra en un 40% l'execució real de la inversió de l'Estat a Catalunya el 2021–2024; el Ministeri diu que la primera fase del pla va arribar al 77%. Les xifres mesuren coses diferents, i aquest és justament el problema: no hi ha un comptador públic i neutral.</span><span class="es"><b>Cataluña:</b> el Plan de Rodalies 2020–2030 preveía 6.345 M€; la Cámara de Barcelona contaba 2.666 M€ ejecutados y pide 1.000 M€/año hasta 2030. El Govern catalán cifra en un 40% la ejecución real de la inversión del Estado en Cataluña en 2021–2024; el Ministerio dice que la primera fase del plan llegó al 77%. Las cifras miden cosas distintas, y ese es justamente el problema: no hay un contador público y neutral.</span></p>
+      </div>
+      <figure class="chart">
+        <figcaption><span class="ca">Habitatge social, % del parc total</span><span class="es">Vivienda social, % del parque total</span></figcaption>
+        <div class="brow"><span class="lab"><span class="ca">Països Baixos</span><span class="es">Países Bajos</span></span><div class="track"><div class="fill" style="width:85%">≈30–34%</div></div></div>
+        <div class="brow"><span class="lab"><span class="ca">Mitjana UE</span><span class="es">Media UE</span></span><div class="track"><div class="fill ghost" style="width:22.9%">8%</div></div></div>
+        <div class="brow"><span class="lab"><span class="ca">Espanya</span><span class="es">España</span></span><div class="track"><div class="fill hot" style="width:6.3%;padding:0"></div><span class="vout" style="left:calc(6.3% + 8px)">1–3%</span></div></div>
+        <p class="src"><span class="ca">Escala 0–35%. Fonts: Comissió Europea (Espanya 3,3%, UE 8%), Banc d'Espanya/OCDE (lloguer social 1,1% vs 34,1% Països Baixos), Esade (1,3%). Les definicions varien.</span><span class="es">Escala 0–35%. Fuentes: Comisión Europea (España 3,3%, UE 8%), Banco de España/OCDE (alquiler social 1,1% vs 34,1% Países Bajos), Esade (1,3%). Las definiciones varían.</span></p>
+        <div class="pair" style="margin-top:14px">
+          <div><div class="big num">750k</div><div class="src"><span class="ca">habitatges de dèficit</span><span class="es">viviendas de déficit</span></div></div>
+          <div><div class="big num">853k</div><div class="src"><span class="ca">pacients en llista d'espera quirúrgica</span><span class="es">pacientes en lista de espera quirúrgica</span></div></div>
+        </div>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- DIVISIO -->
+<section class="topic" id="divisio">
+  <div class="wrap">
+    <div class="topic-head col">
+      <p class="eyebrow"><span class="ca">Polarització</span><span class="es">Polarización</span></p>
+      <h2><span class="ca">Per què ens partim en esquerra i dreta quan el problema és a dalt i a baix?</span><span class="es">¿Por qué nos partimos en izquierda y derecha cuando el problema está arriba y abajo?</span></h2>
+    </div>
+    <div class="grid2">
+      <div class="body">
+        <p><span class="ca">Un 65% de la gent creu que el país està dividit (More in Common, 2025), quatre punts més que el 2021. Però en el problema principal, l'accés a l'habitatge, coincideixen gairebé tots els votants dels grans partits.</span><span class="es">Un 65% de la gente cree que el país está dividido (More in Common, 2025), cuatro puntos más que en 2021. Pero en el problema principal, el acceso a la vivienda, coinciden casi todos los votantes de los grandes partidos.</span></p>
+        <p><span class="ca">Per què, doncs, la conversa sempre gira cap al que ens separa?</span><span class="es">¿Por qué, entonces, la conversación siempre gira hacia lo que nos separa?</span></p>
+        <ul style="margin:0;padding-left:20px;display:grid;gap:8px">
+          <li><span class="ca"><b>La por mobilitza més que les solucions.</b> Als partits els surt més a compte que odiïs l'altre bàndol que no pas que comparis programes.</span><span class="es"><b>El miedo moviliza más que las soluciones.</b> A los partidos les sale más a cuenta que odies al otro bando que que compares programas.</span></li>
+          <li><span class="ca"><b>L'algoritme premia la indignació.</b> Les xarxes amplifiquen el contingut que enfada, no el que informa.</span><span class="es"><b>El algoritmo premia la indignación.</b> Las redes amplifican el contenido que enfada, no el que informa.</span></li>
+          <li><span class="ca"><b>Els temes d'identitat són gratis; els materials, cars.</b> Parlar de banderes no costa res; construir 750.000 habitatges o tocar oligopolis, sí.</span><span class="es"><b>Los temas de identidad son gratis; los materiales, caros.</b> Hablar de banderas no cuesta nada; construir 750.000 viviendas o tocar oligopolios, sí.</span></li>
+          <li><span class="ca"><b>Té un preu democràtic.</b> Estudis a la REIS (CIS) troben que com més polarització afectiva, més preferència per opcions no democràtiques.</span><span class="es"><b>Tiene un precio democrático.</b> Estudios en la REIS (CIS) encuentran que a más polarización afectiva, más preferencia por opciones no democráticas.</span></li>
+        </ul>
+      </div>
+      <figure class="chart">
+        <figcaption><span class="ca">L'eix que no surt als debats</span><span class="es">El eje que no sale en los debates</span></figcaption>
+        <svg class="axes" viewBox="0 0 520 400" role="img" aria-label="Diagrama: eix esquerra-dreta horitzontal, eix dalt-baix vertical">
+          <rect x="60" y="30" width="400" height="140" fill="var(--signal-soft)"/>
+          <rect x="60" y="230" width="400" height="140" fill="var(--calm-soft)"/>
+          <line x1="40" y1="200" x2="480" y2="200" stroke="var(--muted)" stroke-width="1.5" stroke-dasharray="5 5"/>
+          <line x1="260" y1="20" x2="260" y2="380" stroke="var(--ink)" stroke-width="2"/>
+          <polygon points="260,12 254,24 266,24" fill="var(--ink)"/>
+          <polygon points="260,388 254,376 266,376" fill="var(--ink)"/>
+          <text x="44" y="194" class="m"><tspan class="ca">esquerra</tspan><tspan class="es">izquierda</tspan></text>
+          <text x="476" y="194" text-anchor="end" class="m"><tspan class="ca">dreta</tspan><tspan class="es">derecha</tspan></text>
+          <text x="272" y="56" font-weight="500"><tspan class="ca">DALT: rendes sense competència</tspan><tspan class="es">ARRIBA: rentas sin competencia</tspan></text>
+          <text x="272" y="78" class="m"><tspan class="ca">oligopolis, portes giratòries,</tspan><tspan class="es">oligopolios, puertas giratorias,</tspan></text>
+          <text x="272" y="96" class="m"><tspan class="ca">contractes a dit, frau</tspan><tspan class="es">contratos a dedo, fraude</tspan></text>
+          <text x="272" y="300" font-weight="500"><tspan class="ca">BAIX: qui viu del sou</tspan><tspan class="es">ABAJO: quien vive del sueldo</tspan></text>
+          <text x="272" y="322" class="m"><tspan class="ca">assalariats, autònoms, pimes,</tspan><tspan class="es">asalariados, autónomos, pymes,</tspan></text>
+          <text x="272" y="340" class="m"><tspan class="ca">jubilats, nadius i immigrants</tspan><tspan class="es">jubilados, nativos e inmigrantes</tspan></text>
+          <circle cx="150" cy="300" r="7" fill="var(--calm)"/><circle cx="190" cy="318" r="7" fill="var(--calm)"/><circle cx="120" cy="330" r="7" fill="var(--calm)"/>
+          <circle cx="400" cy="250" r="7" fill="var(--calm)"/><circle cx="430" cy="280" r="7" fill="var(--calm)"/><circle cx="90" cy="260" r="7" fill="var(--calm)"/>
+          <circle cx="160" cy="70" r="7" fill="var(--signal)"/><circle cx="420" cy="120" r="7" fill="var(--signal)"/>
+        </svg>
+        <p class="src"><span class="ca">Esquema conceptual, no dades. La majoria de la gent és a baix, a banda i banda de la línia esquerra-dreta.</span><span class="es">Esquema conceptual, no datos. La mayoría de la gente está abajo, a ambos lados de la línea izquierda-derecha.</span></p>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- QUIZ -->
+<section class="topic" id="mites">
+  <div class="wrap">
+    <div class="topic-head col">
+      <p class="eyebrow"><span class="ca">Posa't a prova</span><span class="es">Ponte a prueba</span></p>
+      <h2><span class="ca">Mite o dada?</span><span class="es">¿Mito o dato?</span></h2>
+    </div>
+    <div class="quiz col" id="quiz"></div>
+  </div>
+</section>
+
+<!-- PROPOSTES -->
+<section class="topic" id="propostes">
+  <div class="wrap">
+    <div class="topic-head col">
+      <p class="eyebrow"><span class="ca">Propostes transversals</span><span class="es">Propuestas transversales</span></p>
+      <h2><span class="ca">Vuit propostes que poden signar l'esquerra i la dreta.</span><span class="es">Ocho propuestas que pueden firmar la izquierda y la derecha.</span></h2>
+      <p class="q"><span class="ca">Criteri: cada proposta ataca un privilegi o una ineficiència, no un grup de persones, i té arguments per a tots dos costats.</span><span class="es">Criterio: cada propuesta ataca un privilegio o una ineficiencia, no a un grupo de personas, y tiene argumentos para ambos lados.</span></p>
+    </div>
+    <div class="props">
+
+      <article class="prop">
+        <span class="tag"><span class="ca">Habitatge</span><span class="es">Vivienda</span></span>
+        <h3><span class="ca">Construir 750.000 habitatges, amb un parc públic de lloguer al model de Viena</span><span class="es">Construir 750.000 viviendas, con un parque público de alquiler al modelo de Viena</span></h3>
+        <ul>
+          <li><span class="ca">Llicències exprés i sòl públic disponible en terminis tancats.</span><span class="es">Licencias exprés y suelo público disponible en plazos cerrados.</span></li>
+          <li><span class="ca">Sòl públic cedit, mai venut, per a lloguer assequible permanent.</span><span class="es">Suelo público cedido, nunca vendido, para alquiler asequible permanente.</span></li>
+        </ul>
+        <div class="why"><div><b><span class="ca">Per a la dreta</span><span class="es">Para la derecha</span></b><span class="ca">Menys burocràcia, més oferta, mercat que funciona.</span><span class="es">Menos burocracia, más oferta, mercado que funciona.</span></div><div><b><span class="ca">Per a l'esquerra</span><span class="es">Para la izquierda</span></b><span class="ca">Habitatge com a dret, parc públic que no es ven.</span><span class="es">Vivienda como derecho, parque público que no se vende.</span></div></div>
+      </article>
+
+      <article class="prop">
+        <span class="tag"><span class="ca">Contractes públics</span><span class="es">Contratos públicos</span></span>
+        <h3><span class="ca">Concurs obert per defecte i totes les adjudicacions en dades obertes</span><span class="es">Concurso abierto por defecto y todas las adjudicaciones en datos abiertos</span></h3>
+        <ul>
+          <li><span class="ca">Prohibir el fraccionament de contractes per evitar concurs.</span><span class="es">Prohibir el fraccionamiento de contratos para evitar concurso.</span></li>
+          <li><span class="ca">Objectiu: recuperar part dels 48.000 M€ de sobrecost anual.</span><span class="es">Objetivo: recuperar parte de los 48.000 M€ de sobrecoste anual.</span></li>
+        </ul>
+        <div class="why"><div><b><span class="ca">Per a la dreta</span><span class="es">Para la derecha</span></b><span class="ca">Bona gestió del diner del contribuent.</span><span class="es">Buena gestión del dinero del contribuyente.</span></div><div><b><span class="ca">Per a l'esquerra</span><span class="es">Para la izquierda</span></b><span class="ca">Més recursos per a serveis públics sense pujar impostos.</span><span class="es">Más recursos para servicios públicos sin subir impuestos.</span></div></div>
+      </article>
+
+      <article class="prop">
+        <span class="tag"><span class="ca">Fiscalitat</span><span class="es">Fiscalidad</span></span>
+        <h3><span class="ca">Mateix benefici, mateix impost: tancar la bretxa entre pimes i grans grups</span><span class="es">Mismo beneficio, mismo impuesto: cerrar la brecha entre pymes y grandes grupos</span></h3>
+        <ul>
+          <li><span class="ca">Tipus efectiu mínim real per als grans grups (alineat amb el 15% global de l'OCDE).</span><span class="es">Tipo efectivo mínimo real para los grandes grupos (alineado con el 15% global de la OCDE).</span></li>
+          <li><span class="ca">Amb el que es recapta, rebaixar la càrrega a pimes i autònoms.</span><span class="es">Con lo recaudado, rebajar la carga a pymes y autónomos.</span></li>
+        </ul>
+        <div class="why"><div><b><span class="ca">Per a la dreta</span><span class="es">Para la derecha</span></b><span class="ca">Competència justa per al petit empresari.</span><span class="es">Competencia justa para el pequeño empresario.</span></div><div><b><span class="ca">Per a l'esquerra</span><span class="es">Para la izquierda</span></b><span class="ca">Que pagui més qui més guanya.</span><span class="es">Que pague más quien más gana.</span></div></div>
+      </article>
+
+      <article class="prop">
+        <span class="tag"><span class="ca">Sous</span><span class="es">Sueldos</span></span>
+        <h3><span class="ca">Indexar els trams de l'IRPF a la inflació</span><span class="es">Indexar los tramos del IRPF a la inflación</span></h3>
+        <ul>
+          <li><span class="ca">Que una pujada que només compensa preus no et faci pagar un tipus més alt.</span><span class="es">Que una subida que solo compensa precios no te haga pagar un tipo más alto.</span></li>
+          <li><span class="ca">Finançat amb la lluita contra el frau, no amb retallades.</span><span class="es">Financiado con la lucha contra el fraude, no con recortes.</span></li>
+        </ul>
+        <div class="why"><div><b><span class="ca">Per a la dreta</span><span class="es">Para la derecha</span></b><span class="ca">No pujar impostos d'amagat.</span><span class="es">No subir impuestos a escondidas.</span></div><div><b><span class="ca">Per a l'esquerra</span><span class="es">Para la izquierda</span></b><span class="ca">Protegir el poder adquisitiu dels treballadors.</span><span class="es">Proteger el poder adquisitivo de los trabajadores.</span></div></div>
+      </article>
+
+      <article class="prop">
+        <span class="tag"><span class="ca">Despesa</span><span class="es">Gasto</span></span>
+        <h3><span class="ca">Cap programa sense avaluació: data de caducitat a cada subvenció</span><span class="es">Ningún programa sin evaluación: fecha de caducidad en cada subvención</span></h3>
+        <ul>
+          <li><span class="ca">L'AIReF avalua; si un programa no compleix objectius en X anys, s'acaba o es redissenya.</span><span class="es">La AIReF evalúa; si un programa no cumple objetivos en X años, se acaba o se rediseña.</span></li>
+          <li><span class="ca">Resultats publicats en llenguatge planer.</span><span class="es">Resultados publicados en lenguaje llano.</span></li>
+        </ul>
+        <div class="why"><div><b><span class="ca">Per a la dreta</span><span class="es">Para la derecha</span></b><span class="ca">Menys despesa inútil.</span><span class="es">Menos gasto inútil.</span></div><div><b><span class="ca">Per a l'esquerra</span><span class="es">Para la izquierda</span></b><span class="ca">Els diners socials arriben a qui toca.</span><span class="es">El dinero social llega a quien toca.</span></div></div>
+      </article>
+
+      <article class="prop">
+        <span class="tag"><span class="ca">Política neta</span><span class="es">Política limpia</span></span>
+        <h3><span class="ca">Portes giratòries tancades: 5 anys de carència i registre de lobbies obligatori</span><span class="es">Puertas giratorias cerradas: 5 años de carencia y registro de lobbies obligatorio</span></h3>
+        <ul>
+          <li><span class="ca">Cap alt càrrec al consell d'una empresa del sector que regulava.</span><span class="es">Ningún alto cargo en el consejo de una empresa del sector que regulaba.</span></li>
+          <li><span class="ca">Agenda pública de reunions de ministres i consellers.</span><span class="es">Agenda pública de reuniones de ministros y consejeros.</span></li>
+        </ul>
+        <div class="why"><div><b><span class="ca">Per a la dreta</span><span class="es">Para la derecha</span></b><span class="ca">Mercat lliure de veritat, sense amiguismes.</span><span class="es">Mercado libre de verdad, sin amiguismos.</span></div><div><b><span class="ca">Per a l'esquerra</span><span class="es">Para la izquierda</span></b><span class="ca">Política al servei de la gent, no de l'Ibex.</span><span class="es">Política al servicio de la gente, no del Ibex.</span></div></div>
+      </article>
+
+      <article class="prop">
+        <span class="tag"><span class="ca">Treball i immigració</span><span class="es">Trabajo e inmigración</span></span>
+        <h3><span class="ca">Immigració ordenada: canals legals i tolerància zero amb qui explota</span><span class="es">Inmigración ordenada: canales legales y tolerancia cero con quien explota</span></h3>
+        <ul>
+          <li><span class="ca">Més inspecció de treball i sancions fortes a l'empresari que paga en negre.</span><span class="es">Más inspección de trabajo y sanciones fuertes al empresario que paga en negro.</span></li>
+          <li><span class="ca">Visats lligats a ocupacions amb mancança, i idioma i formació des del primer dia.</span><span class="es">Visados ligados a ocupaciones con escasez, e idioma y formación desde el primer día.</span></li>
+        </ul>
+        <div class="why"><div><b><span class="ca">Per a la dreta</span><span class="es">Para la derecha</span></b><span class="ca">Ordre, control de fronteres i compliment de la llei.</span><span class="es">Orden, control de fronteras y cumplimiento de la ley.</span></div><div><b><span class="ca">Per a l'esquerra</span><span class="es">Para la izquierda</span></b><span class="ca">Drets laborals per a tothom; no dumping salarial.</span><span class="es">Derechos laborales para todos; no dumping salarial.</span></div></div>
+      </article>
+
+      <article class="prop">
+        <span class="tag"><span class="ca">Infraestructures</span><span class="es">Infraestructuras</span></span>
+        <h3><span class="ca">Comptador públic d'inversions: cada euro pressupostat, executat o no, per territori</span><span class="es">Contador público de inversiones: cada euro presupuestado, ejecutado o no, por territorio</span></h3>
+        <ul>
+          <li><span class="ca">Dades mensuals i neutrals (IGAE) per a Rodalies, xarxa elèctrica, sanitat, aigua.</span><span class="es">Datos mensuales y neutrales (IGAE) para Rodalies, red eléctrica, sanidad, agua.</span></li>
+          <li><span class="ca">Garantia de temps màxim d'espera sanitària, amb derivació si s'incompleix.</span><span class="es">Garantía de tiempo máximo de espera sanitaria, con derivación si se incumple.</span></li>
+        </ul>
+        <div class="why"><div><b><span class="ca">Per a la dreta</span><span class="es">Para la derecha</span></b><span class="ca">Rendició de comptes i eficiència.</span><span class="es">Rendición de cuentas y eficiencia.</span></div><div><b><span class="ca">Per a l'esquerra</span><span class="es">Para la izquierda</span></b><span class="ca">Serveis públics que funcionen a tot arreu.</span><span class="es">Servicios públicos que funcionan en todas partes.</span></div></div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- COM ORGANITZAR-SE -->
+<section class="topic" id="organitzar">
+  <div class="wrap">
+    <div class="topic-head col">
+      <p class="eyebrow"><span class="ca">Com ho fem</span><span class="es">Cómo lo hacemos</span></p>
+      <h2><span class="ca">Com s'organitza un grup de gent que vol resultats, no bàndols.</span><span class="es">Cómo se organiza un grupo de gente que quiere resultados, no bandos.</span></h2>
+    </div>
+    <div class="steps">
+      <div class="step"><h3><span class="ca">Partir de dades</span><span class="es">Partir de datos</span></h3><p><span class="ca">Cada afirmació amb font. Si una dada ens incomoda, també es publica.</span><span class="es">Cada afirmación con fuente. Si un dato nos incomoda, también se publica.</span></p></div>
+      <div class="step"><h3><span class="ca">Tema a tema</span><span class="es">Tema a tema</span></h3><p><span class="ca">No demanem a ningú que canviï de vot. Ens unim per a una proposta concreta.</span><span class="es">No pedimos a nadie que cambie su voto. Nos unimos por una propuesta concreta.</span></p></div>
+      <div class="step"><h3><span class="ca">Mateixa pressió a tothom</span><span class="es">Misma presión a todos</span></h3><p><span class="ca">Preguntem a tots els partits el mateix i publiquem què responen i què voten.</span><span class="es">Preguntamos a todos los partidos lo mismo y publicamos qué responden y qué votan.</span></p></div>
+      <div class="step"><h3><span class="ca">Local primer</span><span class="es">Local primero</span></h3><p><span class="ca">Ajuntament i comarca: sòl, llicències, contractes. És on es veu el resultat més ràpid.</span><span class="es">Ayuntamiento y comarca: suelo, licencias, contratos. Es donde se ve el resultado más rápido.</span></p></div>
+      <div class="step"><h3><span class="ca">Sense insults</span><span class="es">Sin insultos</span></h3><p><span class="ca">L'adversari és el privilegi, no el veí que vota diferent.</span><span class="es">El adversario es el privilegio, no el vecino que vota diferente.</span></p></div>
+      <div class="step"><h3><span class="ca">Marcador públic</span><span class="es">Marcador público</span></h3><p><span class="ca">Una fitxa per representant: a favor, en contra o callat en cada proposta.</span><span class="es">Una ficha por representante: a favor, en contra o callado en cada propuesta.</span></p></div>
+    </div>
+  </div>
+</section>
+
+<!-- FONTS -->
+<section class="topic" id="fonts">
+  <div class="wrap">
+    <div class="topic-head col">
+      <p class="eyebrow"><span class="ca">Fonts</span><span class="es">Fuentes</span></p>
+      <h2><span class="ca">Comprova-ho tu mateix.</span><span class="es">Compruébalo tú mismo.</span></h2>
+      <p class="muted"><span class="ca">Algunes xifres provenen d'estimacions de sindicats, patronals o think tanks i s'indiquen com a tals. Dades consultades el novembre de 2026.</span><span class="es">Algunas cifras proceden de estimaciones de sindicatos, patronales o think tanks y se indican como tales. Datos consultados en noviembre de 2026.</span></p>
+    </div>
+    <ul class="sources">
+      <li><a href="https://www.elindependiente.com/economia/2026/04/21/desde-2019-salarios-crecido-1-mientras-la-vivienda-se-ha-disparado-un-64/" target="_blank" rel="noopener">El Independiente – INE: salaris vs habitatge 2019–2025</a></li>
+      <li><a href="https://es.euronews.com/2026/06/09/los-espanoles-ya-destinan-la-mitad-de-su-salario-a-pagar-el-alquiler-segun-un-estudio" target="_blank" rel="noopener">Euronews – Fotocasa: esforç del lloguer</a></li>
+      <li><a href="https://www.idealista.com/news/node/818366" target="_blank" rel="noopener">Idealista – OCDE: pèrdua de poder adquisitiu</a></li>
+      <li><a href="https://es.ara.cat/economia/cuentas-publicas/espana-siete-paises-ocde-fiscalidad-subio-salarios-2025_1_5715310.html" target="_blank" rel="noopener">Ara – OCDE: fiscalitat i salaris 2025</a></li>
+      <li><a href="https://naciodigital.cat/economia/el-lloguer-mitja-a-barcelona-arriba-als-1160-euros-al-mes.html" target="_blank" rel="noopener">Nació Digital – Lloguer Barcelona/Catalunya 2025</a></li>
+      <li><a href="https://www.elindependiente.com/economia/2022/12/02/las-electricas-y-las-petroleras-son-las-empresas-que-mas-estan-aumentando-sus-margenes-segun-el-banco-de-espana/amp/" target="_blank" rel="noopener">El Independiente – Banc d'Espanya: marges per sectors</a></li>
+      <li><a href="https://forbes.es/?p=202635" target="_blank" rel="noopener">Forbes – Marges prepandèmia excepte energia</a></li>
+      <li><a href="https://www.diariodeleon.es/economia/260207/2074787/banca-firma-ano-beneficio-record-marcado-guerra-hipotecaria.html" target="_blank" rel="noopener">Diario de León – Beneficis banca 2025</a></li>
+      <li><a href="https://www.diaridetarragona.com/economia/201066/las-pymes-tributan-mas-del-doble-que-multinacionales-y-grupos-empresariales-ae22045063.html" target="_blank" rel="noopener">Diari de Tarragona – Tipus efectiu pimes vs grups</a></li>
+      <li><a href="https://www.bolsamania.com/noticias/economia/economia--los-inmigrantes-aportaron-17-puntos-al-alza-del-pib-espanol-entre-2022-y-2025-y-05-puntos-al-pib-per-capita--22906098.html" target="_blank" rel="noopener">Bolsamanía – Banc d'Espanya: immigració i PIB</a></li>
+      <li><a href="https://www.infobae.com/espana/2025/07/27/se-rompe-el-mito-los-inmigrantes-ni-quitan-el-trabajo-a-los-espanoles-ni-hacen-que-bajen-sus-sueldos/" target="_blank" rel="noopener">Infobae – Fedea: immigració i mercat de treball</a></li>
+      <li><a href="https://fundaciondisenso.org/wp-content/uploads/2026/06/20260623_InformeXXIX.pdf" target="_blank" rel="noopener">Fundación Disenso – Informe XXIX (visió crítica)</a></li>
+      <li><a href="https://www.lamarea.com/2024/08/23/10-grandes-mitos-sobre-la-inmigracion-ayudas-delincuencia-y-desinformacion" target="_blank" rel="noopener">La Marea – Fedea/UC3M: percepció vs realitat</a></li>
+      <li><a href="https://www.lamoncloa.gob.es/serviciosdeprensa/notasprensa/inclusion/paginas/2026/160126-balance-anual-afiliados-extranjeros.aspx" target="_blank" rel="noopener">La Moncloa – Afiliats estrangers 2025</a></li>
+      <li><a href="https://es.ara.cat/opinion/inmigracion-bienestar-impacto-minimo_129_5590595.html" target="_blank" rel="noopener">Ara – OCDE: saldo fiscal de la immigració</a></li>
+      <li><a href="https://institutosantalucia.es/wp-content/uploads/2026/06/260618_NP-INSTITUTO-SANTALUCIA-El-sistema-publico-de-pensiones-necesito-56.946-millones-de-euros-del-Estado-para-cubrir-su-componente-contributivo-en-2025.pdf" target="_blank" rel="noopener">Instituto Santalucía – Pensions 2025</a></li>
+      <li><a href="https://theobjective.com/economia/2025-05-21/gasto-publico-partidas-sociales-pago-pensiones/" target="_blank" rel="noopener">The Objective – Partides de despesa pública</a></li>
+      <li><a href="https://maldita.es/malditateexplica/20250613/fondos-europeos-espana-vivienda/" target="_blank" rel="noopener">Maldita.es – Despesa i parc d'habitatge social</a></li>
+      <li><a href="https://www.pymnts.com/cpi-posts/espana-pierde-pais-e48-mil-millones-por-falta-de-competencia" target="_blank" rel="noopener">CNMC – 48.000 M€ per manca de competència</a></li>
+      <li><a href="https://www.euribor.com.es/2026/04/28/las-10-profesiones-con-mas-fraude-fiscal-en-espana-segun-hacienda/?amp=1" target="_blank" rel="noopener">Gestha – Frau fiscal (estimació)</a></li>
+      <li><a href="https://www.vozpopuli.com/economia/subvenciones-millones-airef-gasto-publico-espana_0_1251175007.html" target="_blank" rel="noopener">Vozpópuli – AIReF: subvencions</a></li>
+      <li><a href="https://emplea.ceu.es/wp-content/uploads/randstad-research-informe-50-titulares-septiembre-2025-1.pdf" target="_blank" rel="noopener">Randstad Research – Ocupació pública 2025</a></li>
+      <li><a href="https://es.euronews.com/2026/04/16/un-nuevo-record-mas-de-853000-personas-esperan-una-operacion-en-espana" target="_blank" rel="noopener">Euronews – Llistes d'espera quirúrgica</a></li>
+      <li><a href="https://www.elsaltodiario.com/multinacionales/puertas-giratorias-ministros-secretarios-estado-energia-enagas-red-electrica-iberdrola-endesa-abengoa-retiro-dorado-de-la-politica" target="_blank" rel="noopener">El Salto – Portes giratòries i energia</a></li>
+      <li><a href="https://www.eldiario.es/economia/banco-espana-eleva-750-000-viviendas-faltan-anticipa-deficit-agravara-proximos-anos_1_13313634.html" target="_blank" rel="noopener">elDiario.es – Banc d'Espanya: 750.000 habitatges</a></li>
+      <li><a href="https://www.caixabankresearch.com/es/node/13714/printable/print" target="_blank" rel="noopener">CaixaBank Research – Dèficit i preus</a></li>
+      <li><a href="https://www.esade.edu/ecpol/es/aumentar-vivienda-social-mientras-la-construimos/" target="_blank" rel="noopener">EsadeEcPol – Habitatge social</a></li>
+      <li><a href="https://es.euronews.com/2025/09/12/el-gobierno-amplia-un-62-el-limite-de-inversion-en-la-red-electrica-hasta-2030" target="_blank" rel="noopener">Euronews – Inversió en xarxa elèctrica</a></li>
+      <li><a href="https://www.ultimahora.es/noticias/comunidades/2026/02/05/2563993/camara-barcelona-insta-ejecutar-1000-millones-anuales-para-rodalies-hasta-2030.html" target="_blank" rel="noopener">Última Hora – Cambra de Barcelona: Rodalies</a></li>
+      <li><a href="https://www.lamoncloa.gob.es/serviciosdeprensa/notasprensa/transportes-movilidad-sostenible/Paginas/2026/290126-puente-comparecencia-senado-rodalies.aspx" target="_blank" rel="noopener">La Moncloa – Ministeri: execució Rodalies</a></li>
+      <li><a href="https://es.ara.cat/politica/fracasos-controlar-inversiones-cataluna_1_5397326.html" target="_blank" rel="noopener">Ara – Execució d'inversions a Catalunya</a></li>
+      <li><a href="https://www.corresponsables.com/actualidad/vivienda-ia-y-cambio-climatico-los-grandes-retos-de-espana-bloqueados-por-la-polarizacion-politica/" target="_blank" rel="noopener">More in Common – Atles de la polarització 2025</a></li>
+      <li><a href="https://www.moreincommon.com/media/2qao5xr3/mic_vivienda_diagno-stico_y_soluciones_2026.pdf" target="_blank" rel="noopener">More in Common – Habitatge 2026</a></li>
+      <li><a href="https://reis.cis.es/index.php/reis/article/view/2601" target="_blank" rel="noopener">REIS (CIS) – Polarització i democràcia</a></li>
+    </ul>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap col">
+    <p class="brand" style="font-size:1.6rem">La <b>Mateixa</b> Factura</p>
+    <p class="muted" style="margin-top:8px"><span class="ca">Projecte informatiu independent. No demana el vot per a ningú. Si trobes una dada errònia, digues-ho i la corregirem.</span><span class="es">Proyecto informativo independiente. No pide el voto para nadie. Si encuentras un dato erróneo, dilo y lo corregiremos.</span></p>
+    <p style="margin-top:12px"><a href="../index.html">← Deflacta'm</a> · <a href="https://github.com/oriollacave/deflactam/issues" target="_blank" rel="noopener"><span class="ca">Obre una incidència</span><span class="es">Abre una incidencia</span></a></p>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var root=document.documentElement;
+  function setLang(l){
+    root.setAttribute('data-lang',l); root.lang=l;
+    document.querySelectorAll('.lang button').forEach(function(b){b.setAttribute('aria-pressed',String(b.dataset.l===l))});
+    try{localStorage.setItem('mf-lang',l)}catch(e){}
+  }
+  var saved=null; try{saved=localStorage.getItem('mf-lang')}catch(e){}
+  setLang(saved==='es'?'es':'ca');
+  document.querySelectorAll('.lang button').forEach(function(b){b.addEventListener('click',function(){setLang(b.dataset.l)})});
+
+  // waffle: 200 cells, 0.5% each → 14.1% ≈ 28 cells
+  var w=document.getElementById('waffle'), h='';
+  for(var i=0;i<200;i++){h+='<i class="'+(i<28?'per':'on')+'"></i>'}
+  w.innerHTML=h;
+
+  var Q=[
+    {ca:"Els immigrants fan pujar l'atur dels nadius.",es:"Los inmigrantes hacen subir el paro de los nativos.",t:false,
+     aca:"El Banc d'Espanya no troba reducció d'oportunitats per als nadius 2022–2025, i l'atur ha baixat. Sí hi ha pressió salarial localitzada en feines poc qualificades.",
+     aes:"El Banco de España no encuentra reducción de oportunidades para los nativos 2022–2025, y el paro ha bajado. Sí hay presión salarial localizada en empleos poco cualificados."},
+    {ca:"Una pime paga un tipus efectiu de Societats més alt que una multinacional.",es:"Una pyme paga un tipo efectivo de Sociedades más alto que una multinacional.",t:true,
+     aca:"Cert. Dades de l'Agència Tributària: ~18% les pimes davant ~7% els grans grups consolidats (2022).",
+     aes:"Cierto. Datos de la Agencia Tributaria: ~18% las pymes frente a ~7% los grandes grupos consolidados (2022)."},
+    {ca:"La major part de la despesa social va a immigrants.",es:"La mayor parte del gasto social va a inmigrantes.",t:false,
+     aca:"La partida més gran són les pensions (12,9% del PIB), que cobren sobretot jubilats que van cotitzar aquí. L'OCDE situa el saldo fiscal de la immigració a prop de zero.",
+     aes:"La partida más grande son las pensiones (12,9% del PIB), que cobran sobre todo jubilados que cotizaron aquí. La OCDE sitúa el saldo fiscal de la inmigración cerca de cero."},
+    {ca:"Amb la pujada de sous des del 2019, el treballador mitjà viu millor.",es:"Con la subida de sueldos desde 2019, el trabajador medio vive mejor.",t:false,
+     aca:"El sou ha pujat un 21,2% i els preus un 21,8%. L'habitatge, fins a un 63,7%.",
+     aes:"El sueldo ha subido un 21,2% y los precios un 21,8%. La vivienda, hasta un 63,7%."},
+    {ca:"La manca de competència en contractes públics ens costa més que tota la despesa estatal en habitatge.",es:"La falta de competencia en contratos públicos nos cuesta más que todo el gasto estatal en vivienda.",t:true,
+     aca:"Cert, i de lluny: la CNMC estima 48.000 M€/any de sobrecost; l'Estat destina al voltant de 0,2% del PIB a habitatge (~3.400 M€).",
+     aes:"Cierto, y de lejos: la CNMC estima 48.000 M€/año de sobrecoste; el Estado destina alrededor del 0,2% del PIB a vivienda (~3.400 M€)."}
+  ];
+  var qz=document.getElementById('quiz');
+  Q.forEach(function(q,i){
+    var c=document.createElement('div'); c.className='qcard';
+    c.innerHTML='<p class="stmt"><span class="ca">'+q.ca+'</span><span class="es">'+q.es+'</span></p>'+
+      '<div class="qbtns"><button type="button" id="q'+i+'m" data-v="0"><span class="ca">Mite</span><span class="es">Mito</span></button>'+
+      '<button type="button" id="q'+i+'d" data-v="1"><span class="ca">Dada</span><span class="es">Dato</span></button></div>'+
+      '<div class="qans" hidden></div>';
+    var ans=c.querySelector('.qans');
+    c.querySelectorAll('button').forEach(function(b){
+      b.addEventListener('click',function(){
+        var ok=(b.dataset.v==='1')===q.t;
+        ans.innerHTML='<p class="res '+(ok?'ok':'ko')+'"><span class="ca">'+(ok?'Correcte':'No')+' · '+(q.t?'és dada':'és mite')+'</span><span class="es">'+(ok?'Correcto':'No')+' · '+(q.t?'es dato':'es mito')+'</span></p><p><span class="ca">'+q.aca+'</span><span class="es">'+q.aes+'</span></p>';
+        ans.hidden=false;
+      });
+    });
+    qz.appendChild(c);
+  });
+})();
+</script>
+
+</body>
+</html>
