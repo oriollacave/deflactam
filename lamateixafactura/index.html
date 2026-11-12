@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta name="description" content="Dades sobre sous, beneficis, immigració, despesa social, eficiència pública i polarització a Espanya i Catalunya, amb propostes transversals.">
+<meta name="description" content="Dades sobre sous, beneficis, immigració, despesa social, eficiència pública i polarització a Espanya i Catalunya, amb propostes transversals i casos internacionals.">
 <style>[hidden]{display:none!important}img{max-width:100%}</style>
 <title>La Mateixa Factura</title>
 <meta name="claude:viewport-fit-sides" content="cover">
@@ -146,6 +146,30 @@ figure{margin:0}
 .step::before{counter-increment:s;content:counter(s,decimal-leading-zero);font:500 .8rem var(--mono);color:var(--signal)}
 .step p{font-size:.93rem}
 
+/* world comparison */
+.world{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}
+.wcard{border-top:3px solid var(--ink);padding-top:14px;display:grid;gap:10px;align-content:start;min-width:0}
+.wcard .lbl{font-family:var(--mono);font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.wcard p{font-size:.93rem}
+.wcard .yes{border-left:3px solid var(--signal);padding-left:10px}
+.wcard .no{border-left:3px solid var(--calm);padding-left:10px}
+.trials{display:grid;gap:28px}
+.trial{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,2fr);gap:24px;border-top:1px solid var(--ink);padding-top:16px}
+.trial h3{font-size:1.15rem}
+.trial .ver{margin-top:8px;font-size:.88rem;color:var(--muted)}
+.cases{display:grid;gap:10px}
+.case{display:grid;grid-template-columns:150px 88px minmax(0,1fr);gap:12px;align-items:baseline;font-size:.92rem;padding-bottom:10px;border-bottom:1px dashed var(--line)}
+.case .pl{font-weight:600}
+.chip{font:500 .7rem var(--mono);letter-spacing:.06em;text-transform:uppercase;padding:3px 8px;border-radius:999px;text-align:center;justify-self:start;white-space:nowrap}
+.chip.ok{background:var(--calm);color:var(--paper)}
+.chip.ko{background:var(--signal);color:var(--paper)}
+.chip.mix{border:1.5px solid var(--ink);color:var(--ink)}
+.lessons{display:grid;grid-template-columns:repeat(5,1fr);gap:16px;margin-top:36px}
+.lessons > div{background:var(--paper);border:1px solid var(--line);padding:14px;font-size:.88rem;min-width:0}
+.lessons b{display:block;font-family:var(--display);font-stretch:85%;font-size:1.02rem;margin-bottom:4px}
+@media (max-width:860px){.world{grid-template-columns:1fr}.trial{grid-template-columns:1fr;gap:12px}.lessons{grid-template-columns:1fr 1fr}}
+@media (max-width:520px){.case{grid-template-columns:1fr auto;gap:4px 10px}.case .tx{grid-column:1/-1}.lessons{grid-template-columns:1fr}}
+
 .sources{font-size:.85rem;columns:2;column-gap:40px}
 .sources li{break-inside:avoid;margin-bottom:6px}
 footer{padding-block:40px 60px;border-top:1px solid var(--ink)}
@@ -185,7 +209,9 @@ footer{padding-block:40px 60px;border-top:1px solid var(--ink)}
       <a href="#fuites"><span class="ca">Fuites</span><span class="es">Fugas</span></a>
       <a href="#infra"><span class="ca">Infraestructures</span><span class="es">Infraestructuras</span></a>
       <a href="#divisio"><span class="ca">Divisió</span><span class="es">División</span></a>
+      <a href="#mon"><span class="ca">Al món</span><span class="es">En el mundo</span></a>
       <a href="#propostes"><span class="ca">Propostes</span><span class="es">Propuestas</span></a>
+      <a href="#proves"><span class="ca">On s'ha provat</span><span class="es">Dónde se ha probado</span></a>
     </nav>
     <div class="lang" role="group" aria-label="Idioma">
       <button type="button" id="b-ca" data-l="ca" aria-pressed="true">CA</button>
@@ -454,6 +480,68 @@ footer{padding-block:40px 60px;border-top:1px solid var(--ink)}
   </div>
 </section>
 
+<!-- MON: PROBLEMES -->
+<section class="topic" id="mon">
+  <div class="wrap">
+    <div class="topic-head col">
+      <p class="eyebrow"><span class="ca">Al món</span><span class="es">En el mundo</span></p>
+      <h2><span class="ca">Passa a tot arreu? On no passa, i per què?</span><span class="es">¿Pasa en todas partes? ¿Dónde no pasa, y por qué?</span></h2>
+      <p class="q"><span class="ca">Si un problema existeix a tot Europa, no és culpa d'un sol govern. Si algun país l'ha evitat, podem copiar com ho ha fet.</span><span class="es">Si un problema existe en toda Europa, no es culpa de un solo gobierno. Si algún país lo ha evitado, podemos copiar cómo lo ha hecho.</span></p>
+    </div>
+    <div class="world">
+
+      <article class="wcard">
+        <h3><span class="ca">Sous que no segueixen els preus</span><span class="es">Sueldos que no siguen a los precios</span></h3>
+        <p class="yes"><span class="lbl"><span class="ca">On passa</span><span class="es">Dónde pasa</span></span><br><span class="ca">A mitja OCDE. El 2025 els sous reals encara eren per sota del nivell de 2021 en prop de la meitat de països; als EUA, un 2% per sota. A Itàlia van caure més d'un 5%.</span><span class="es">En media OCDE. En 2025 los sueldos reales aún estaban por debajo del nivel de 2021 en cerca de la mitad de países; en EE. UU., un 2% por debajo. En Italia cayeron más de un 5%.</span></p>
+        <p class="no"><span class="lbl"><span class="ca">Per què</span><span class="es">Por qué</span></span><br><span class="ca">El xoc energètic va ser global. On Espanya queda pitjor és en la combinació amb l'habitatge i en uns trams d'IRPF que no s'actualitzen (prop de la meitat de països de l'OCDE sí que ho fan automàticament).</span><span class="es">El choque energético fue global. Donde España queda peor es en la combinación con la vivienda y en unos tramos del IRPF que no se actualizan (cerca de la mitad de países de la OCDE sí lo hacen automáticamente).</span></p>
+      </article>
+
+      <article class="wcard">
+        <h3><span class="ca">Beneficis que empenyen la inflació</span><span class="es">Beneficios que empujan la inflación</span></h3>
+        <p class="yes"><span class="lbl"><span class="ca">On passa</span><span class="es">Dónde pasa</span></span><br><span class="ca">A tota la zona euro. L'FMI atribueix als beneficis un 45% de la inflació des del 2022 (els salaris, un 25%). Per al BCE, els beneficis unitaris van explicar dos terços de la inflació interna del 2022, el doble del normal.</span><span class="es">En toda la zona euro. El FMI atribuye a los beneficios un 45% de la inflación desde 2022 (los salarios, un 25%). Para el BCE, los beneficios unitarios explicaron dos tercios de la inflación interna de 2022, el doble de lo normal.</span></p>
+        <p class="no"><span class="lbl"><span class="ca">Per què</span><span class="es">Por qué</span></span><br><span class="ca">Els sectors amb poca competència podien apujar preus sense perdre clients. Els impostos extraordinaris van recaptar menys del previst: Itàlia en va cobrar uns 2.800 M€ d'11.000 M€ esperats.</span><span class="es">Los sectores con poca competencia podían subir precios sin perder clientes. Los impuestos extraordinarios recaudaron menos de lo previsto: Italia cobró unos 2.800 M€ de 11.000 M€ esperados.</span></p>
+      </article>
+
+      <article class="wcard">
+        <h3><span class="ca">Immigració i sous baixos</span><span class="es">Inmigración y sueldos bajos</span></h3>
+        <p class="yes"><span class="lbl"><span class="ca">On fa mal</span><span class="es">Dónde hace daño</span></span><br><span class="ca">On hi ha molta feina il·legal i poca inspecció. Als EUA, les sancions a empresaris de 1986 gairebé no es van aplicar, i la verificació E-Verify va abaixar el sou dels treballadors sense papers però no en va reduir la contractació: els va empènyer a més precarietat.</span><span class="es">Donde hay mucho trabajo ilegal y poca inspección. En EE. UU., las sanciones a empresarios de 1986 casi no se aplicaron, y la verificación E-Verify bajó el sueldo de los trabajadores sin papeles pero no redujo su contratación: los empujó a más precariedad.</span></p>
+        <p class="no"><span class="lbl"><span class="ca">On no</span><span class="es">Dónde no</span></span><br><span class="ca">A Dinamarca, amb mercat laboral formal, l'arribada de refugiats va fer que els nadius poc qualificats passessin a feines menys manuals i cobressin fins a un 2% més. Japó i Alemanya obren canals legals per manca de mà d'obra (Japó: rècord de 444.256 treballadors qualificats el 2026).</span><span class="es">En Dinamarca, con mercado laboral formal, la llegada de refugiados hizo que los nativos poco cualificados pasaran a empleos menos manuales y cobraran hasta un 2% más. Japón y Alemania abren canales legales por falta de mano de obra (Japón: récord de 444.256 trabajadores cualificados en 2026).</span></p>
+      </article>
+
+      <article class="wcard">
+        <h3><span class="ca">Habitatge inassequible</span><span class="es">Vivienda inasequible</span></h3>
+        <p class="yes"><span class="lbl"><span class="ca">On passa</span><span class="es">Dónde pasa</span></span><br><span class="ca">Londres, Berlín, Dublín, Lisboa, Nova Zelanda, Califòrnia… gairebé a totes les ciutats riques on es construeix poc.</span><span class="es">Londres, Berlín, Dublín, Lisboa, Nueva Zelanda, California… casi en todas las ciudades ricas donde se construye poco.</span></p>
+        <p class="no"><span class="lbl"><span class="ca">On no, i per què</span><span class="es">Dónde no, y por qué</span></span><br><span class="ca"><b>Viena:</b> 45–60% de la població en habitatge social o d'entitats sense afany de lucre; lloguers dels més baixos de les grans ciutats d'Europa occidental. <b>Tòquio:</b> zonificació nacional i permisos automàtics; construeix ~62.000 habitatges/any contra 30–40.000 a Londres, i lloguers estables. <b>Singapur:</b> el 79% viu en pisos públics i el 89% n'és propietari, però l'Estat té el 90% del sòl.</span><span class="es"><b>Viena:</b> 45–60% de la población en vivienda social o de entidades sin ánimo de lucro; alquileres de los más bajos de las grandes ciudades de Europa occidental. <b>Tokio:</b> zonificación nacional y permisos automáticos; construye ~62.000 viviendas/año frente a 30–40.000 en Londres, y alquileres estables. <b>Singapur:</b> el 79% vive en pisos públicos y el 89% es propietario, pero el Estado tiene el 90% del suelo.</span></p>
+      </article>
+
+      <article class="wcard">
+        <h3><span class="ca">Corrupció i diners que s'escolen</span><span class="es">Corrupción y dinero que se escapa</span></h3>
+        <p class="yes"><span class="lbl"><span class="ca">On passa</span><span class="es">Dónde pasa</span></span><br><span class="ca">Espanya ha baixat de 61 a 55 punts a l'Índex de Percepció de la Corrupció (2021–2025), al lloc 49 del món.</span><span class="es">España ha bajado de 61 a 55 puntos en el Índice de Percepción de la Corrupción (2021–2025), en el puesto 49 del mundo.</span></p>
+        <p class="no"><span class="lbl"><span class="ca">On no, i per què</span><span class="es">Dónde no, y por qué</span></span><br><span class="ca"><b>Dinamarca</b> (89 punts, primera vuit anys seguits): transparència i institucions de control independents. <b>Estònia</b>: tota l'administració digital i connectada; el govern calcula un estalvi del 2% del PIB l'any.</span><span class="es"><b>Dinamarca</b> (89 puntos, primera ocho años seguidos): transparencia e instituciones de control independientes. <b>Estonia</b>: toda la administración digital y conectada; el gobierno calcula un ahorro del 2% del PIB al año.</span></p>
+      </article>
+
+      <article class="wcard">
+        <h3><span class="ca">Llistes d'espera</span><span class="es">Listas de espera</span></h3>
+        <p class="yes"><span class="lbl"><span class="ca">On passa</span><span class="es">Dónde pasa</span></span><br><span class="ca">Espanya, Itàlia, Suècia, Regne Unit. Per a una pròtesi de maluc, un 30% espera més de tres mesos a Suècia i Itàlia.</span><span class="es">España, Italia, Suecia, Reino Unido. Para una prótesis de cadera, un 30% espera más de tres meses en Suecia e Italia.</span></p>
+        <p class="no"><span class="lbl"><span class="ca">On no, i per què</span><span class="es">Dónde no, y por qué</span></span><br><span class="ca"><b>Dinamarca</b>: si l'hospital no t'opera en un mes, pots anar a un altre, i paga el sistema. Només un 10% espera més de tres mesos. L'OCDE conclou que les garanties funcionen si tenen sancions o llibertat d'elecció; soles, no.</span><span class="es"><b>Dinamarca</b>: si el hospital no te opera en un mes, puedes ir a otro, y paga el sistema. Solo un 10% espera más de tres meses. La OCDE concluye que las garantías funcionan si tienen sanciones o libertad de elección; solas, no.</span></p>
+      </article>
+
+      <article class="wcard">
+        <h3><span class="ca">Infraestructures que no s'executen</span><span class="es">Infraestructuras que no se ejecutan</span></h3>
+        <p class="yes"><span class="lbl"><span class="ca">On passa</span><span class="es">Dónde pasa</span></span><br><span class="ca">On la inversió depèn del pressupost de cada any i de qui governa: es promet molt i s'executa poc (Rodalies).</span><span class="es">Donde la inversión depende del presupuesto de cada año y de quién gobierna: se promete mucho y se ejecuta poco (Rodalies).</span></p>
+        <p class="no"><span class="lbl"><span class="ca">On no, i per què</span><span class="es">Dónde no, y por qué</span></span><br><span class="ca"><b>Suïssa</b>: el 2014 un 62% va votar en referèndum un fons ferroviari únic i permanent (FABI) per a manteniment i ampliacions, amb un pla per etapes. El tren deixa de dependre del cicle polític.</span><span class="es"><b>Suiza</b>: en 2014 un 62% votó en referéndum un fondo ferroviario único y permanente (FABI) para mantenimiento y ampliaciones, con un plan por etapas. El tren deja de depender del ciclo político.</span></p>
+      </article>
+
+      <article class="wcard">
+        <h3><span class="ca">Polarització</span><span class="es">Polarización</span></h3>
+        <p class="yes"><span class="lbl"><span class="ca">On passa</span><span class="es">Dónde pasa</span></span><br><span class="ca">No és inevitable. En un estudi de 12 països de l'OCDE durant 40 anys, els EUA són on més ha crescut l'odi entre bàndols; en sis països, va baixar.</span><span class="es">No es inevitable. En un estudio de 12 países de la OCDE durante 40 años, EE. UU. es donde más ha crecido el odio entre bandos; en seis países, bajó.</span></p>
+        <p class="no"><span class="lbl"><span class="ca">On menys, i per què</span><span class="es">Dónde menos, y por qué</span></span><br><span class="ca"><b>Suïssa</b>: des del 1959 els grans partits governen junts (cap en té més de dos ministres) i qualsevol llei es pot portar a referèndum. Obliga a pactar i dona molta confiança en les institucions, tot i que la polarització també hi ha crescut.</span><span class="es"><b>Suiza</b>: desde 1959 los grandes partidos gobiernan juntos (ninguno tiene más de dos ministros) y cualquier ley se puede llevar a referéndum. Obliga a pactar y da mucha confianza en las instituciones, aunque la polarización también ha crecido.</span></p>
+      </article>
+
+    </div>
+  </div>
+</section>
+
 <!-- QUIZ -->
 <section class="topic" id="mites">
   <div class="wrap">
@@ -559,6 +647,109 @@ footer{padding-block:40px 60px;border-top:1px solid var(--ink)}
   </div>
 </section>
 
+<!-- PROVES: PROPOSTES AL MON -->
+<section class="topic" id="proves">
+  <div class="wrap">
+    <div class="topic-head col">
+      <p class="eyebrow"><span class="ca">Prova de realitat</span><span class="es">Prueba de realidad</span></p>
+      <h2><span class="ca">On s'han aplicat aquestes propostes, i han funcionat?</span><span class="es">¿Dónde se han aplicado estas propuestas, y han funcionado?</span></h2>
+      <p class="q"><span class="ca">Casos d'Europa, Àsia, Amèrica i Oceania. Quan una proposta ha fallat en algun lloc, ho diem, i expliquem per què.</span><span class="es">Casos de Europa, Asia, América y Oceanía. Cuando una propuesta ha fallado en algún sitio, lo decimos, y explicamos por qué.</span></p>
+    </div>
+    <div class="trials">
+
+      <article class="trial">
+        <div><h3><span class="ca">Habitatge: construir i parc públic permanent</span><span class="es">Vivienda: construir y parque público permanente</span></h3>
+          <p class="ver"><span class="ca">Funciona quan s'augmenta l'oferta i el parc públic no es ven. Limitar preus sense construir fa fugir pisos del mercat.</span><span class="es">Funciona cuando se aumenta la oferta y el parque público no se vende. Limitar precios sin construir hace huir pisos del mercado.</span></p></div>
+        <div class="cases">
+          <div class="case"><span class="pl"><span class="ca">Viena (Àustria)</span><span class="es">Viena (Austria)</span></span><span class="chip ok"><span class="ca">Funciona</span><span class="es">Funciona</span></span><span class="tx"><span class="ca">Lloguers lligats al cost de construcció, beneficis reinvertits en més pisos i accés per a classe mitjana. Lloguers socials nous un 27% per sota dels privats. Contra: llistes d'espera llargues.</span><span class="es">Alquileres ligados al coste de construcción, beneficios reinvertidos en más pisos y acceso para clase media. Alquileres sociales nuevos un 27% por debajo de los privados. Contra: listas de espera largas.</span></span></div>
+          <div class="case"><span class="pl">Auckland (N. Zelanda)</span><span class="chip ok"><span class="ca">Funciona</span><span class="es">Funciona</span></span><span class="tx"><span class="ca">El 2016 va permetre edificar més alt en tres quarts del sòl residencial. Sis anys després, el lloguer d'un pis de 3 habitacions era un 22–35% més baix que sense la reforma (estudi Univ. d'Auckland).</span><span class="es">En 2016 permitió edificar más alto en tres cuartos del suelo residencial. Seis años después, el alquiler de un piso de 3 habitaciones era un 22–35% más bajo que sin la reforma (estudio Univ. de Auckland).</span></span></div>
+          <div class="case"><span class="pl"><span class="ca">Tòquio (Japó)</span><span class="es">Tokio (Japón)</span></span><span class="chip ok"><span class="ca">Funciona</span><span class="es">Funciona</span></span><span class="tx"><span class="ca">Normes urbanístiques estatals i simples: si el projecte compleix, té llicència. Lloguers estables una dècada. Contra: pisos més petits (55 m² de mitjana).</span><span class="es">Normas urbanísticas estatales y simples: si el proyecto cumple, tiene licencia. Alquileres estables una década. Contra: pisos más pequeños (55 m² de media).</span></span></div>
+          <div class="case"><span class="pl">Singapur</span><span class="chip mix"><span class="ca">Difícil</span><span class="es">Difícil</span></span><span class="tx"><span class="ca">Èxit enorme (89% propietaris), però basat en expropiar sòl per sota de mercat des del 1966. Difícil de copiar en una democràcia amb sòl privat.</span><span class="es">Éxito enorme (89% propietarios), pero basado en expropiar suelo por debajo de mercado desde 1966. Difícil de copiar en una democracia con suelo privado.</span></span></div>
+          <div class="case"><span class="pl"><span class="ca">Berlín (Alemanya)</span><span class="es">Berlín (Alemania)</span></span><span class="chip ko"><span class="ca">Falla</span><span class="es">Falla</span></span><span class="tx"><span class="ca">El topall de lloguers del 2020 va abaixar preus, però l'oferta de pisos regulats va caure fins a un 60% (ifo) i no es va recuperar. El Constitucional el va anul·lar el 2021.</span><span class="es">El tope de alquileres de 2020 bajó precios, pero la oferta de pisos regulados cayó hasta un 60% (ifo) y no se recuperó. El Constitucional lo anuló en 2021.</span></span></div>
+        </div>
+      </article>
+
+      <article class="trial">
+        <div><h3><span class="ca">Contractes públics oberts i en dades obertes</span><span class="es">Contratos públicos abiertos y en datos abiertos</span></h3>
+          <p class="ver"><span class="ca">Funciona. La clau és que tothom pugui veure cada licitació, cada oferta i cada guanyador.</span><span class="es">Funciona. La clave es que todo el mundo pueda ver cada licitación, cada oferta y cada ganador.</span></p></div>
+        <div class="cases">
+          <div class="case"><span class="pl"><span class="ca">Ucraïna (ProZorro)</span><span class="es">Ucrania (ProZorro)</span></span><span class="chip ok"><span class="ca">Funciona</span><span class="es">Funciona</span></span><span class="tx"><span class="ca">Totes les compres públiques en una plataforma oberta. Estalvi declarat de més del 10% (64.400 M de hrivnies el 2023). Les empreses que diuen haver trobat corrupció baixen del 54% al 29%. Les xifres venen sobretot dels seus impulsors.</span><span class="es">Todas las compras públicas en una plataforma abierta. Ahorro declarado de más del 10% (64.400 M de grivnas en 2023). Las empresas que dicen haber encontrado corrupción bajan del 54% al 29%. Las cifras vienen sobre todo de sus impulsores.</span></span></div>
+          <div class="case"><span class="pl"><span class="ca">Estònia</span><span class="es">Estonia</span></span><span class="chip ok"><span class="ca">Funciona</span><span class="es">Funciona</span></span><span class="tx"><span class="ca">Administració 100% digital i interconnectada (X-Road). El govern estima un estalvi del 2% del PIB anual.</span><span class="es">Administración 100% digital e interconectada (X-Road). El gobierno estima un ahorro del 2% del PIB anual.</span></span></div>
+          <div class="case"><span class="pl"><span class="ca">Espanya (CNMC)</span><span class="es">España (CNMC)</span></span><span class="chip mix"><span class="ca">A mitges</span><span class="es">A medias</span></span><span class="tx"><span class="ca">Els concursos oberts ja estalvien gairebé un 10%, però encara hi ha massa contractes menors i negociats sense publicitat.</span><span class="es">Los concursos abiertos ya ahorran casi un 10%, pero aún hay demasiados contratos menores y negociados sin publicidad.</span></span></div>
+        </div>
+      </article>
+
+      <article class="trial">
+        <div><h3><span class="ca">Impost mínim efectiu per a grans grups</span><span class="es">Impuesto mínimo efectivo para grandes grupos</span></h3>
+          <p class="ver"><span class="ca">Mixt. L'acord global existeix, però les excepcions per als més grans el buiden. A escala nacional, depèn de tancar deduccions.</span><span class="es">Mixto. El acuerdo global existe, pero las excepciones para los más grandes lo vacían. A escala nacional, depende de cerrar deducciones.</span></p></div>
+        <div class="cases">
+          <div class="case"><span class="pl">OCDE (Pilar 2)</span><span class="chip mix"><span class="ca">Afeblit</span><span class="es">Debilitado</span></span><span class="tx"><span class="ca">Mínim global del 15% per a multinacionals. Però el gener del 2026 es va pactar que els grups amb matriu als EUA en quedin quasi exempts.</span><span class="es">Mínimo global del 15% para multinacionales. Pero en enero de 2026 se pactó que los grupos con matriz en EE. UU. queden casi exentos.</span></span></div>
+          <div class="case"><span class="pl"><span class="ca">Itàlia, Espanya, Hongria</span><span class="es">Italia, España, Hungría</span></span><span class="chip mix"><span class="ca">Parcial</span><span class="es">Parcial</span></span><span class="tx"><span class="ca">Impostos extraordinaris a banca i energia. Espanya preveia uns 3.000 M€ de la banca; Itàlia en va recaptar 2.800 M€ dels 11.000 M€ previstos en energia. Temporals i litigats.</span><span class="es">Impuestos extraordinarios a banca y energía. España preveía unos 3.000 M€ de la banca; Italia recaudó 2.800 M€ de los 11.000 M€ previstos en energía. Temporales y litigados.</span></span></div>
+        </div>
+      </article>
+
+      <article class="trial">
+        <div><h3><span class="ca">Indexar l'IRPF a la inflació</span><span class="es">Indexar el IRPF a la inflación</span></h3>
+          <p class="ver"><span class="ca">Funciona i és habitual. L'únic "cost" és que el govern ja no recapta més d'amagat.</span><span class="es">Funciona y es habitual. El único "coste" es que el gobierno ya no recauda más a escondidas.</span></p></div>
+        <div class="cases">
+          <div class="case"><span class="pl"><span class="ca">EUA</span><span class="es">EE. UU.</span></span><span class="chip ok"><span class="ca">Funciona</span><span class="es">Funciona</span></span><span class="tx"><span class="ca">Trams indexats des del 1985; avui s'actualitzen més de 40 paràmetres cada any.</span><span class="es">Tramos indexados desde 1985; hoy se actualizan más de 40 parámetros cada año.</span></span></div>
+          <div class="case"><span class="pl"><span class="ca">OCDE i Europa</span><span class="es">OCDE y Europa</span></span><span class="chip ok"><span class="ca">Habitual</span><span class="es">Habitual</span></span><span class="tx"><span class="ca">Prop de la meitat de l'OCDE indexa automàticament; a Europa, 11 de 27 països. Àustria s'hi va sumar el 2023.</span><span class="es">Cerca de la mitad de la OCDE indexa automáticamente; en Europa, 11 de 27 países. Austria se sumó en 2023.</span></span></div>
+          <div class="case"><span class="pl"><span class="ca">Regne Unit</span><span class="es">Reino Unido</span></span><span class="chip ko"><span class="ca">Al revés</span><span class="es">Al revés</span></span><span class="tx"><span class="ca">Va congelar els trams el 2022: puja d'impostos sense votar-la, com a Espanya.</span><span class="es">Congeló los tramos en 2022: subida de impuestos sin votarla, como en España.</span></span></div>
+        </div>
+      </article>
+
+      <article class="trial">
+        <div><h3><span class="ca">Avaluar tota la despesa</span><span class="es">Evaluar todo el gasto</span></h3>
+          <p class="ver"><span class="ca">Funciona si l'avaluació decideix el pressupost de l'any següent. Si només és un informe, no canvia res.</span><span class="es">Funciona si la evaluación decide el presupuesto del año siguiente. Si solo es un informe, no cambia nada.</span></p></div>
+        <div class="cases">
+          <div class="case"><span class="pl"><span class="ca">Xile (DIPRES)</span><span class="es">Chile (DIPRES)</span></span><span class="chip ok"><span class="ca">Funciona</span><span class="es">Funciona</span></span><span class="tx"><span class="ca">Des del 1997 panells d'experts independents avaluen programes i el Ministeri d'Hisenda ho fa servir per decidir pressupostos. L'OCDE el considera un referent.</span><span class="es">Desde 1997 paneles de expertos independientes evalúan programas y el Ministerio de Hacienda lo usa para decidir presupuestos. La OCDE lo considera un referente.</span></span></div>
+          <div class="case"><span class="pl"><span class="ca">Espanya (AIReF)</span><span class="es">España (AIReF)</span></span><span class="chip mix"><span class="ca">A mitges</span><span class="es">A medias</span></span><span class="tx"><span class="ca">Bons informes (Spending Review), però el govern no està obligat a aplicar-los.</span><span class="es">Buenos informes (Spending Review), pero el gobierno no está obligado a aplicarlos.</span></span></div>
+        </div>
+      </article>
+
+      <article class="trial">
+        <div><h3><span class="ca">Tancar les portes giratòries</span><span class="es">Cerrar las puertas giratorias</span></h3>
+          <p class="ver"><span class="ca">Existeix a molts països, però gairebé no hi ha estudis que en mesurin l'efecte. Sense una autoritat que vigili i sancioni, és paper mullat.</span><span class="es">Existe en muchos países, pero casi no hay estudios que midan su efecto. Sin una autoridad que vigile y sancione, es papel mojado.</span></p></div>
+        <div class="cases">
+          <div class="case"><span class="pl"><span class="ca">Canadà</span><span class="es">Canadá</span></span><span class="chip ok"><span class="ca">Estricte</span><span class="es">Estricto</span></span><span class="tx"><span class="ca">5 anys sense poder fer lobby per a exalts càrrecs, amb comissionat propi. Crítica: tan dur que pot espantar gent vàlida.</span><span class="es">5 años sin poder hacer lobby para ex altos cargos, con comisionado propio. Crítica: tan duro que puede asustar a gente válida.</span></span></div>
+          <div class="case"><span class="pl"><span class="ca">França (HATVP)</span><span class="es">Francia (HATVP)</span></span><span class="chip ok"><span class="ca">Funciona</span><span class="es">Funciona</span></span><span class="tx"><span class="ca">Autoritat independent que controla declaracions i el pas al sector privat.</span><span class="es">Autoridad independiente que controla declaraciones y el paso al sector privado.</span></span></div>
+          <div class="case"><span class="pl"><span class="ca">Comissió Europea</span><span class="es">Comisión Europea</span></span><span class="chip mix"><span class="ca">Curt</span><span class="es">Corto</span></span><span class="tx"><span class="ca">18 mesos per a excomissaris; Transparency International demana 3–5 anys.</span><span class="es">18 meses para excomisarios; Transparency International pide 3–5 años.</span></span></div>
+        </div>
+      </article>
+
+      <article class="trial">
+        <div><h3><span class="ca">Immigració ordenada i persecució de l'explotació</span><span class="es">Inmigración ordenada y persecución de la explotación</span></h3>
+          <p class="ver"><span class="ca">Funciona amb canals legals i inspecció real. Les sancions que no s'apliquen, o que castiguen el treballador en comptes de l'empresari, fracassen.</span><span class="es">Funciona con canales legales e inspección real. Las sanciones que no se aplican, o que castigan al trabajador en lugar de al empresario, fracasan.</span></p></div>
+        <div class="cases">
+          <div class="case"><span class="pl">Dinamarca</span><span class="chip ok"><span class="ca">Funciona</span><span class="es">Funciona</span></span><span class="tx"><span class="ca">Mercat formal: els immigrants entren en feines manuals i els nadius pugen de categoria i de sou.</span><span class="es">Mercado formal: los inmigrantes entran en empleos manuales y los nativos suben de categoría y de sueldo.</span></span></div>
+          <div class="case"><span class="pl"><span class="ca">Japó</span><span class="es">Japón</span></span><span class="chip ok"><span class="ca">Creix</span><span class="es">Crece</span></span><span class="tx"><span class="ca">Visat de "treballador qualificat específic" (2019) lligat a sectors amb manca de personal. Rècord de 444.256 el 2026.</span><span class="es">Visado de "trabajador cualificado específico" (2019) ligado a sectores con falta de personal. Récord de 444.256 en 2026.</span></span></div>
+          <div class="case"><span class="pl"><span class="ca">Alemanya</span><span class="es">Alemania</span></span><span class="chip mix"><span class="ca">Lent</span><span class="es">Lento</span></span><span class="tx"><span class="ca">"Targeta d'oportunitats" (2024): 11.497 visats el primer any. Els investigadors el troben massa complicat.</span><span class="es">"Tarjeta de oportunidades" (2024): 11.497 visados el primer año. Los investigadores lo encuentran demasiado complicado.</span></span></div>
+          <div class="case"><span class="pl"><span class="ca">EUA</span><span class="es">EE. UU.</span></span><span class="chip ko"><span class="ca">Falla</span><span class="es">Falla</span></span><span class="tx"><span class="ca">Sancions a empresaris (1986) gairebé mai aplicades; E-Verify va abaixar sous sense reduir la feina il·legal.</span><span class="es">Sanciones a empresarios (1986) casi nunca aplicadas; E-Verify bajó sueldos sin reducir el empleo ilegal.</span></span></div>
+        </div>
+      </article>
+
+      <article class="trial">
+        <div><h3><span class="ca">Inversions garantides i temps màxims d'espera</span><span class="es">Inversiones garantizadas y tiempos máximos de espera</span></h3>
+          <p class="ver"><span class="ca">Funciona quan els diners estan blindats per llei i la garantia té conseqüències si s'incompleix.</span><span class="es">Funciona cuando el dinero está blindado por ley y la garantía tiene consecuencias si se incumple.</span></p></div>
+        <div class="cases">
+          <div class="case"><span class="pl"><span class="ca">Suïssa (FABI)</span><span class="es">Suiza (FABI)</span></span><span class="chip ok"><span class="ca">Funciona</span><span class="es">Funciona</span></span><span class="tx"><span class="ca">Fons ferroviari permanent votat en referèndum (62%) i pla d'ampliació per etapes (6.400 M CHF fins al 2025).</span><span class="es">Fondo ferroviario permanente votado en referéndum (62%) y plan de ampliación por etapas (6.400 M CHF hasta 2025).</span></span></div>
+          <div class="case"><span class="pl">Dinamarca</span><span class="chip ok"><span class="ca">Funciona</span><span class="es">Funciona</span></span><span class="tx"><span class="ca">Garantia d'1 mes per operar-se, amb dret a anar a un altre centre. 10% espera més de 3 mesos.</span><span class="es">Garantía de 1 mes para operarse, con derecho a ir a otro centro. 10% espera más de 3 meses.</span></span></div>
+          <div class="case"><span class="pl"><span class="ca">Suècia</span><span class="es">Suecia</span></span><span class="chip mix"><span class="ca">Fluix</span><span class="es">Flojo</span></span><span class="tx"><span class="ca">Garantia basada en acords, sense sancions clares. ~30% espera més de 3 mesos.</span><span class="es">Garantía basada en acuerdos, sin sanciones claras. ~30% espera más de 3 meses.</span></span></div>
+        </div>
+      </article>
+
+    </div>
+
+    <div class="lessons">
+      <div><b><span class="ca">Regles automàtiques</span><span class="es">Reglas automáticas</span></b><span class="ca">El que no depèn de la voluntat de cada govern dura: indexació, fons suïs, lloguers vienesos.</span><span class="es">Lo que no depende de la voluntad de cada gobierno dura: indexación, fondo suizo, alquileres vieneses.</span></div>
+      <div><b><span class="ca">Amb conseqüències</span><span class="es">Con consecuencias</span></b><span class="ca">Una garantia sense sanció no és garantia: Dinamarca vs Suècia, EUA 1986.</span><span class="es">Una garantía sin sanción no es garantía: Dinamarca vs Suecia, EE. UU. 1986.</span></div>
+      <div><b><span class="ca">Oferta, no només topalls</span><span class="es">Oferta, no solo topes</span></b><span class="ca">Limitar preus sense construir redueix l'oferta: Berlín. Construir els abaixa: Auckland, Tòquio.</span><span class="es">Limitar precios sin construir reduce la oferta: Berlín. Construir los baja: Auckland, Tokio.</span></div>
+      <div><b><span class="ca">Tot a la vista</span><span class="es">Todo a la vista</span></b><span class="ca">La transparència total retalla corrupció i sobrecostos: ProZorro, Estònia, Dinamarca.</span><span class="es">La transparencia total recorta corrupción y sobrecostes: ProZorro, Estonia, Dinamarca.</span></div>
+      <div><b><span class="ca">Sense excepcions</span><span class="es">Sin excepciones</span></b><span class="ca">Si els més grans s'escapen, la norma es buida: impost mínim global 2026.</span><span class="es">Si los más grandes se escapan, la norma se vacía: impuesto mínimo global 2026.</span></div>
+    </div>
+  </div>
+</section>
+
 <!-- COM ORGANITZAR-SE -->
 <section class="topic" id="organitzar">
   <div class="wrap">
@@ -620,6 +811,36 @@ footer{padding-block:40px 60px;border-top:1px solid var(--ink)}
       <li><a href="https://www.corresponsables.com/actualidad/vivienda-ia-y-cambio-climatico-los-grandes-retos-de-espana-bloqueados-por-la-polarizacion-politica/" target="_blank" rel="noopener">More in Common – Atles de la polarització 2025</a></li>
       <li><a href="https://www.moreincommon.com/media/2qao5xr3/mic_vivienda_diagno-stico_y_soluciones_2026.pdf" target="_blank" rel="noopener">More in Common – Habitatge 2026</a></li>
       <li><a href="https://reis.cis.es/index.php/reis/article/view/2601" target="_blank" rel="noopener">REIS (CIS) – Polarització i democràcia</a></li>
+      <li><a href="https://www.oecd.org/en/publications/2025/07/oecd-employment-outlook-2025_5345f034/full-report/executive-summary_642932a9.html" target="_blank" rel="noopener">OCDE – Employment Outlook 2025</a></li>
+      <li><a href="https://www.imf.org/en/blogs/articles/2023/06/26/europes-inflation-outlook-depends-on-how-corporate-profits-absorb-wage-gains" target="_blank" rel="noopener">FMI – Beneficis i inflació a Europa</a></li>
+      <li><a href="https://www.pressreader.com/usa/the-guardian-usa/20230628/282037626601064" target="_blank" rel="noopener">The Guardian – Lagarde: beneficis i preus</a></li>
+      <li><a href="https://taxfoundation.org/blog/italy-windfall-profits-tax/" target="_blank" rel="noopener">Tax Foundation – Impostos extraordinaris a Europa</a></li>
+      <li><a href="https://voxeu.org/article/how-immigrants-and-job-mobility-help-low-skilled-workers" target="_blank" rel="noopener">VoxEU – Foged i Peri: immigració a Dinamarca</a></li>
+      <li><a href="https://www.dallasfed.org/-/media/documents/research/papers/2024/wp2413.pdf" target="_blank" rel="noopener">Dallas Fed – E-Verify i sous</a></li>
+      <li><a href="https://iza.org/publications/dp/7419/imprint" target="_blank" rel="noopener">IZA – Sancions a empresaris als EUA</a></li>
+      <li><a href="https://www.nippon.com/en/news/yjj2026092900816/" target="_blank" rel="noopener">Nippon.com – Treballadors qualificats al Japó</a></li>
+      <li><a href="https://www.make-it-in-germany.com/de/service/newsletter/1jahr-chancenkarte" target="_blank" rel="noopener">Make it in Germany – Chancenkarte</a></li>
+      <li><a href="https://climateandcommunity.org/wp-content/uploads/2025/06/Green-Social-Housing_Lessons-from-Vienna_report.pdf" target="_blank" rel="noopener">Climate and Community – Habitatge a Viena</a></li>
+      <li><a href="https://collections.fes.de/publikationen/download/pdf/1962520" target="_blank" rel="noopener">FES – Model vienès</a></li>
+      <li><a href="https://ideas.repec.org/p/cyc/wpaper/016.html" target="_blank" rel="noopener">Greenaway-McGrevy – Auckland upzoning</a></li>
+      <li><a href="https://www.centreforcities.org/blog/can-tokyo-show-us-how-to-solve-britains-housing-" target="_blank" rel="noopener">Centre for Cities – Tòquio vs Londres</a></li>
+      <li><a href="https://lkyspp.nus.edu.sg/gia/article/public-housing-policy-in-singapore" target="_blank" rel="noopener">NUS LKY School – Habitatge a Singapur</a></li>
+      <li><a href="https://ifo.de/en/node/61829" target="_blank" rel="noopener">ifo – Topall de lloguers de Berlín</a></li>
+      <li><a href="https://www.leibniz-gemeinschaft.de/en/about-us/whats-new/news/forschungsnachrichten-single/newsdetails/mietendeckel-verknappt-angebot" target="_blank" rel="noopener">Leibniz – El topall va reduir l'oferta</a></li>
+      <li><a href="https://kyivindependent.com/opinion-how-corrupt-is-public-procurement-in-ukraine" target="_blank" rel="noopener">Kyiv Independent – ProZorro</a></li>
+      <li><a href="https://www.open-contracting.org/impact-ukraine" target="_blank" rel="noopener">Open Contracting – ProZorro</a></li>
+      <li><a href="https://discovery.ucl.ac.uk/10195776/1/Kattel_iipp-wp-2018-09_estonias_digital_transformation.pdf" target="_blank" rel="noopener">UCL IIPP – Transformació digital d'Estònia</a></li>
+      <li><a href="https://www.transparency.org/en/news/cpi-2025-findings-insights-corruption" target="_blank" rel="noopener">Transparency International – IPC 2025</a></li>
+      <li><a href="https://taxnews.ey.com/news/2026-0115-breaking-tax-news-oecd-releases-side-by-side-arrangement-exempting-us-multinationals-from-most-pillar-two-global-minimum-tax-rules" target="_blank" rel="noopener">EY – Pilar 2 i exempció dels EUA</a></li>
+      <li><a href="https://taxfoundation.org/income-tax-inflation-adjustments-europe" target="_blank" rel="noopener">Tax Foundation – Indexació de l'IRPF a Europa</a></li>
+      <li><a href="https://www.oecd.org/en/publications/taxing-wages-2023_8c99fa4d-en/full-report/component-5" target="_blank" rel="noopener">OCDE – Taxing Wages 2023</a></li>
+      <li><a href="https://ideas.repec.org/a/oec/govkaa/a0f4eba0.html" target="_blank" rel="noopener">OCDE – Avaluació de programes a Xile</a></li>
+      <li><a href="https://lobbycanada.gc.ca/en/rules/the-lobbying-act/advice-and-interpretation-lobbying-act/five-year-restriction-on-lobbying-for-former-designated-public-office-holders/" target="_blank" rel="noopener">Canadà – Restricció de 5 anys</a></li>
+      <li><a href="https://transparency.eu/the-revolving-door-is-here-to-stay-this-is-how-to-deal-with-it-2/?output=pdf" target="_blank" rel="noopener">Transparency International UE – Portes giratòries</a></li>
+      <li><a href="https://www.oecd.org/en/publications/health-at-a-glance-2019_4dd50c09-en/full-report/waiting-times-for-elective-surgery_9e962fdf" target="_blank" rel="noopener">OCDE – Temps d'espera quirúrgica</a></li>
+      <li><a href="https://www.railwaygazette.com/policy/swiss-voters-back-long-term-rail-funding-plan/39184.article" target="_blank" rel="noopener">Railway Gazette – Fons ferroviari suís</a></li>
+      <li><a href="https://www.nber.org/papers/w26669" target="_blank" rel="noopener">Boxell, Gentzkow i Shapiro – Polarització a 12 països</a></li>
+      <li><a href="https://sgi-network.org/2024/Switzerland/Executive_Summary" target="_blank" rel="noopener">SGI – Democràcia de consens suïssa</a></li>
     </ul>
   </div>
 </section>
